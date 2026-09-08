@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('cartes', function (Blueprint $table) {
             $table->id();
             $table->foreignId('extension_id')->constrained();
-            $table->bigInteger('cardable-id');
+            $table->bigInteger('cardable_id');
             $table->string('cardable_type');
             $table->timestamps();
         });
