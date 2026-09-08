@@ -2,11 +2,15 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\MorphMany;
 
 class TypeSwu extends Model
 {
     use HasFactory;
+
+    protected $table = 'type_swu';
 
     protected $fillable = [
         'image_recto',
@@ -26,6 +30,13 @@ class TypeSwu extends Model
         'description_verso',
         'up_puiss',
         'up_pv',
+    ];
+
+    protected $casts = [
+        'affinites' => 'array',
+        'types' => 'array',
+        'mot_cles' => 'array',
+        'traits' => 'array',
     ];
 
     public function cartes()

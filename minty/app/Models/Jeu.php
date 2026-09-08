@@ -2,7 +2,9 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Jeu extends Model
 {
@@ -13,6 +15,10 @@ class Jeu extends Model
         'logo',
         'date_creation',
         'description',
+    ];
+
+    protected $casts = [
+        'date_creation' => 'datetime',
     ];
 
     public function extensions()
