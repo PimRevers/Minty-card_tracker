@@ -4,11 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
 
-class Utilisateur extends Model
+class Utilisateur extends Authenticatable
 {
-    use HasFactory;
+    use HasFactory, Notifiable;
+
+    protected $table = 'utilisateurs';
 
     protected $fillable = [
         'nom',
@@ -20,7 +23,23 @@ class Utilisateur extends Model
 
     protected $hidden = [
         'password',
+        'remember_token',
     ];
+
+    protected function casts(): array
+    {
+        return [
+            'password' => 'hashed',
+        ];
+    }
+
+    public function setRememberToken($value)
+    {
+        // Safe set if column exists or skip
+        if (!empty($this->getRememberTokenName())) {
+            $this->attributes[$this->getRememberTokenName()] = $value;
+        }
+    }
 
     public function cartes()
     {
