@@ -1,0 +1,1634 @@
+﻿<!DOCTYPE html>
+<html lang="fr" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Minty — Galerie des Maquettes Google Stitch</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: '#00F5A0',
+            'primary-dark': '#003921',
+            secondary: '#00D9F5',
+            amethyst: '#9B51E0',
+            surface: '#090D0E',
+            'surface-card': '#131C20',
+            'surface-card-hover': '#18242A',
+            border: '#1E2C33',
+            'border-light': 'rgba(255, 255, 255, 0.08)'
+          },
+          fontFamily: {
+            display: ['Space Grotesk', 'sans-serif'],
+            body: ['Manrope', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      background-color: #090D0E;
+      color: #E0E3E4;
+      font-family: 'Manrope', sans-serif;
+    }
+    .glow-mint {
+      box-shadow: 0 0 25px rgba(0, 245, 160, 0.2);
+    }
+    .glow-mint-sm {
+      box-shadow: 0 0 12px rgba(0, 245, 160, 0.35);
+    }
+    .holo-border {
+      border: 1px solid transparent;
+      background: linear-gradient(#131C20, #131C20) padding-box,
+                  linear-gradient(135deg, rgba(0, 245, 160, 0.4), rgba(0, 217, 245, 0.3), rgba(155, 81, 224, 0.3)) border-box;
+    }
+  </style>
+</head>
+<body class="min-h-screen antialiased flex flex-col">
+
+  <!-- Header -->
+  <header class="border-b border-border bg-[#090D0E]/80 backdrop-blur-md sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-primary flex items-center justify-center font-display font-bold text-xl text-black glow-mint-sm">
+          M
+        </div>
+        <div>
+          <h1 class="font-display font-bold text-xl text-white tracking-tight flex items-center gap-2">
+            Minty <span class="text-primary text-xs px-2 py-0.5 rounded-full bg-primary/10 border border-primary/20">Stitch Vault</span>
+          </h1>
+          <p class="text-xs text-neutral-400">Maquettes & Design System officiels extraits de Google Stitch</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-3">
+        <a href="DESIGN_SYSTEM.md" class="text-xs font-semibold px-3 py-2 rounded-lg bg-surface-card hover:bg-surface-card-hover border border-border text-neutral-200 transition-all flex items-center gap-1.5">
+          <span class="material-symbols-outlined text-sm text-primary">menu_book</span>
+          Design System (Markdown)
+        </a>
+        <a href="../minty" class="text-xs font-semibold px-3 py-2 rounded-lg bg-primary hover:bg-[#00D68B] text-black transition-all flex items-center gap-1.5">
+          <span class="material-symbols-outlined text-sm">home</span>
+          Projet Laravel
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Bar -->
+  <section class="max-w-7xl mx-auto px-6 pt-8 pb-4 w-full">
+    <div class="p-6 rounded-2xl bg-surface-card border border-border flex flex-col md:flex-row md:items-center justify-between gap-6 relative overflow-hidden">
+      <div class="absolute -right-20 -top-20 w-80 h-80 bg-primary/10 rounded-full blur-3xl pointer-events-none"></div>
+      <div>
+        <div class="flex items-center gap-2 text-primary font-display font-semibold text-xs uppercase tracking-wider mb-2">
+          <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+          Projet Stitch : Minty Tracker Design System (ID: 10544642588076483505)
+        </div>
+        <h2 class="font-display font-bold text-2xl text-white">Hub des Maquettes & Éléments Graphiques</h2>
+        <p class="text-sm text-neutral-400 mt-1 max-w-2xl">
+          Toutes les vues UI sont disponibles en code HTML Tailwind interactif et en captures d'écran, avec 21 déclinaisons de logos vectoriels SVG haute fidélité.
+        </p>
+      </div>
+      <div class="flex items-center gap-4 text-center">
+        <div class="px-4 py-2 rounded-xl bg-[#090D0E] border border-border">
+          <div class="font-display font-bold text-2xl text-primary">16</div>
+          <div class="text-[11px] text-neutral-400 uppercase tracking-wider">Vues PC</div>
+        </div>
+        <div class="px-4 py-2 rounded-xl bg-[#090D0E] border border-border">
+          <div class="font-display font-bold text-2xl text-secondary">4</div>
+          <div class="text-[11px] text-neutral-400 uppercase tracking-wider">Vues Mobile</div>
+        </div>
+        <div class="px-4 py-2 rounded-xl bg-[#090D0E] border border-border">
+          <div class="font-display font-bold text-2xl text-amethyst">21</div>
+          <div class="text-[11px] text-neutral-400 uppercase tracking-wider">Logos SVG</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Filter Tabs -->
+    <div class="flex items-center gap-2 mt-6 border-b border-border pb-3">
+      <button onclick="filterCategory('all')" id="btn-all" class="tab-btn px-4 py-1.5 rounded-lg text-xs font-semibold bg-primary text-black transition-colors">
+        Tout afficher
+      </button>
+      <button onclick="filterCategory('desktop')" id="btn-desktop" class="tab-btn px-4 py-1.5 rounded-lg text-xs font-semibold bg-surface-card hover:bg-surface-card-hover text-neutral-300 transition-colors">
+        🖥️ Écrans PC (16)
+      </button>
+      <button onclick="filterCategory('mobile')" id="btn-mobile" class="tab-btn px-4 py-1.5 rounded-lg text-xs font-semibold bg-surface-card hover:bg-surface-card-hover text-neutral-300 transition-colors">
+        📱 Écrans Mobile (4)
+      </button>
+      <button onclick="filterCategory('logos')" id="btn-logos" class="tab-btn px-4 py-1.5 rounded-lg text-xs font-semibold bg-surface-card hover:bg-surface-card-hover text-neutral-300 transition-colors">
+        🏷️ Logos SVG (21)
+      </button>
+      <button onclick="filterCategory('assets')" id="btn-assets" class="tab-btn px-4 py-1.5 rounded-lg text-xs font-semibold bg-surface-card hover:bg-surface-card-hover text-neutral-300 transition-colors">
+        🖼️ Médias & Assets (4)
+      </button>
+    </div>
+  </section>
+
+  <!-- Main Grid -->
+    <main class="max-w-7xl mx-auto px-6 py-6 w-full flex-1 flex flex-col gap-8">
+
+    <!-- 🌟 TOP HIGHLIGHT: 3 MAQUETTES TAILWIND CSS + SHADCN UI -->
+    <section class="rounded-2xl p-6 bg-gradient-to-br from-[#11181c] via-[#0d1316] to-[#090d0e] border-2 border-primary/50 shadow-2xl relative overflow-hidden">
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6 pb-4 border-b border-border">
+        <div>
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold bg-primary/20 text-primary border border-primary/30 uppercase tracking-wider mb-2">
+            <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+            Nouvelle Approche : Tailwind CSS + Shadcn UI
+          </div>
+          <h2 class="text-xl font-display font-bold text-white">Les 3 Maquettes Officielles Épurées (Non-IA)</h2>
+          <p class="text-xs text-neutral-400 mt-1">Refondues avec le design system <strong>Shadcn UI</strong> (tokens CSS HSL, bordures fines 1px, icônes Lucide, mode Sombre/Clair) et la charte <strong>Vert Menthe (#0D9488)</strong>.</p>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="text-xs font-mono font-bold px-3 py-1.5 rounded-lg bg-primary/10 border border-primary/20 text-primary">
+            ✓ Charte Vert Menthe
+          </span>
+          <span class="text-xs font-mono font-bold px-3 py-1.5 rounded-lg bg-surface-card border border-border text-neutral-300">
+            Shadcn + Lucide
+          </span>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+        <!-- Page 1: Accueil / Dashboard -->
+        <div class="rounded-xl bg-[#0B0F11] border border-primary/30 hover:border-primary p-5 flex flex-col justify-between gap-4 group transition-all shadow-md">
+          <div class="flex flex-col gap-2.5">
+            <div class="flex items-center justify-between">
+              <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-primary/20 text-primary font-bold">PAGE 01 • SHADCN</span>
+              <span class="text-[10px] text-neutral-400 font-mono">Tableau de bord</span>
+            </div>
+            <h3 class="text-base font-display font-bold text-white group-hover:text-primary transition-colors">Page d'Accueil</h3>
+            <p class="text-xs text-neutral-400 leading-relaxed">
+              Dashboard épuré axé sur <strong>Crépuscule de la République (TWI)</strong> : progression Full Set 30.2%, cartes métriques Shadcn, cartes obtenues (#011 Anakin, Grievous, Obi-Wan, Rex) et toggle Clair/Sombre.
+            </p>
+          </div>
+          <a href="page-accueil.html" target="_blank" class="w-full text-center py-2.5 rounded-lg bg-primary text-black font-display font-bold text-xs hover:bg-[#00D68B] transition-all flex items-center justify-center gap-1.5 shadow-sm">
+            <span class="material-symbols-outlined text-sm">open_in_new</span>
+            Ouvrir l'Accueil Shadcn
+          </a>
+        </div>
+
+        <!-- Page 2: Mes Cartes -->
+        <div class="rounded-xl bg-[#0B0F11] border border-primary/30 hover:border-primary p-5 flex flex-col justify-between gap-4 group transition-all shadow-md">
+          <div class="flex flex-col gap-2.5">
+            <div class="flex items-center justify-between">
+              <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-primary/20 text-primary font-bold">PAGE 02 • SHADCN</span>
+              <span class="text-[10px] text-neutral-400 font-mono">Inventaire des cartes</span>
+            </div>
+            <h3 class="text-base font-display font-bold text-white group-hover:text-primary transition-colors">Mes Cartes</h3>
+            <p class="text-xs text-neutral-400 leading-relaxed">
+              Vue interactive avec bascule Grille / Tableau Shadcn, filtres d'aspects et raretés, ajusteur de quantité (+/-) en temps réel, cartes manquantes grisées et support Foil.
+            </p>
+          </div>
+          <a href="page-cartes-possedees.html" target="_blank" class="w-full text-center py-2.5 rounded-lg bg-primary text-black font-display font-bold text-xs hover:bg-[#00D68B] transition-all flex items-center justify-center gap-1.5 shadow-sm">
+            <span class="material-symbols-outlined text-sm">open_in_new</span>
+            Ouvrir Mes Cartes Shadcn
+          </a>
+        </div>
+
+        <!-- Page 3: Profil & Préférences -->
+        <div class="rounded-xl bg-[#0B0F11] border border-primary/30 hover:border-primary p-5 flex flex-col justify-between gap-4 group transition-all shadow-md">
+          <div class="flex flex-col gap-2.5">
+            <div class="flex items-center justify-between">
+              <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-primary/20 text-primary font-bold">PAGE 03 • SHADCN</span>
+              <span class="text-[10px] text-neutral-400 font-mono">Profil & Préférences</span>
+            </div>
+            <h3 class="text-base font-display font-bold text-white group-hover:text-primary transition-colors">Page de Profil</h3>
+            <p class="text-xs text-neutral-400 leading-relaxed">
+              Formulaires et réglages de compte style Shadcn : statistiques de collectionneur, sécurité (2FA, mot de passe), sélection des jeux TCG suivis, options de tri de collection et exports CSV/JSON.
+            </p>
+          </div>
+          <a href="page-profil.html" target="_blank" class="w-full text-center py-2.5 rounded-lg bg-primary text-black font-display font-bold text-xs hover:bg-[#00D68B] transition-all flex items-center justify-center gap-1.5 shadow-sm">
+            <span class="material-symbols-outlined text-sm">open_in_new</span>
+            Ouvrir le Profil Shadcn
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="items-container">
+
+      <div class="item-card cat-desktop rounded-2xl bg-surface-card border border-border hover:border-primary/40 transition-all flex flex-col overflow-hidden group">
+        <div class="aspect-video bg-[#0B0F10] relative overflow-hidden flex items-center justify-center p-2 border-b border-border">
+    
+          <img src="screenshots/checklist-violet-nebuleuse-lilas_4cdf6c93.jpg" alt="Checklist — Violet Nébuleuse & Lilas" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300">
+        
+          <div class="absolute top-3 left-3">
+            <span class="text-[10px] font-display font-bold px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 uppercase tracking-wider">PC / Desktop</span>
+          </div>
+        </div>
+
+        <div class="p-4 flex flex-col flex-1 justify-between gap-3">
+          <div>
+            <h3 class="font-display font-semibold text-sm text-white group-hover:text-primary transition-colors line-clamp-1">Checklist — Violet Nébuleuse & Lilas</h3>
+            <p class="text-xs text-neutral-400 mt-1 line-clamp-1">Identifiant : <code class="text-neutral-500">4cdf6c93cc51...</code></p>
+          </div>
+
+          <div class="flex items-center gap-2 pt-2 border-t border-border/60">
+    
+            <a href="screens/desktop/checklist-violet-nebuleuse-lilas.html" target="_blank" class="flex-1 text-center py-2 px-3 rounded-lg bg-primary/10 hover:bg-primary text-primary hover:text-black font-display font-semibold text-xs transition-all flex items-center justify-center gap-1">
+              <span class="material-symbols-outlined text-sm">open_in_new</span>
+              Ouvrir HTML
+            </a>
+        
+            <a href="screenshots/checklist-violet-nebuleuse-lilas_4cdf6c93.jpg" target="_blank" class="py-2 px-3 rounded-lg bg-surface-card-hover hover:bg-neutral-800 text-neutral-300 hover:text-white font-display font-semibold text-xs transition-all flex items-center justify-center gap-1" title="Voir la capture complète">
+              <span class="material-symbols-outlined text-sm">image</span>
+            </a>
+        
+          </div>
+        </div>
+      </div>
+    
+      <div class="item-card cat-desktop rounded-2xl bg-surface-card border border-border hover:border-primary/40 transition-all flex flex-col overflow-hidden group">
+        <div class="aspect-video bg-[#0B0F10] relative overflow-hidden flex items-center justify-center p-2 border-b border-border">
+    
+          <img src="screenshots/mon-compte-star-wars-unlimited_06c0f1dc.jpg" alt="Mon Compte - Star Wars: Unlimited" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300">
+        
+          <div class="absolute top-3 left-3">
+            <span class="text-[10px] font-display font-bold px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 uppercase tracking-wider">PC / Desktop</span>
+          </div>
+        </div>
+
+        <div class="p-4 flex flex-col flex-1 justify-between gap-3">
+          <div>
+            <h3 class="font-display font-semibold text-sm text-white group-hover:text-primary transition-colors line-clamp-1">Mon Compte - Star Wars: Unlimited</h3>
+            <p class="text-xs text-neutral-400 mt-1 line-clamp-1">Identifiant : <code class="text-neutral-500">06c0f1dc8e9c...</code></p>
+          </div>
+
+          <div class="flex items-center gap-2 pt-2 border-t border-border/60">
+    
+            <a href="screens/desktop/mon-compte-star-wars-unlimited.html" target="_blank" class="flex-1 text-center py-2 px-3 rounded-lg bg-primary/10 hover:bg-primary text-primary hover:text-black font-display font-semibold text-xs transition-all flex items-center justify-center gap-1">
+              <span class="material-symbols-outlined text-sm">open_in_new</span>
+              Ouvrir HTML
+            </a>
+        
+            <a href="screenshots/mon-compte-star-wars-unlimited_06c0f1dc.jpg" target="_blank" class="py-2 px-3 rounded-lg bg-surface-card-hover hover:bg-neutral-800 text-neutral-300 hover:text-white font-display font-semibold text-xs transition-all flex items-center justify-center gap-1" title="Voir la capture complète">
+              <span class="material-symbols-outlined text-sm">image</span>
+            </a>
+        
+          </div>
+        </div>
+      </div>
+    
+      <div class="item-card cat-desktop rounded-2xl bg-surface-card border border-border hover:border-primary/40 transition-all flex flex-col overflow-hidden group">
+        <div class="aspect-video bg-[#0B0F10] relative overflow-hidden flex items-center justify-center p-2 border-b border-border">
+    
+          <img src="screenshots/dashboard-monochrome-editorial_f9baf6a8.jpg" alt="Dashboard — Monochrome Éditorial" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300">
+        
+          <div class="absolute top-3 left-3">
+            <span class="text-[10px] font-display font-bold px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 uppercase tracking-wider">PC / Desktop</span>
+          </div>
+        </div>
+
+        <div class="p-4 flex flex-col flex-1 justify-between gap-3">
+          <div>
+            <h3 class="font-display font-semibold text-sm text-white group-hover:text-primary transition-colors line-clamp-1">Dashboard — Monochrome Éditorial</h3>
+            <p class="text-xs text-neutral-400 mt-1 line-clamp-1">Identifiant : <code class="text-neutral-500">f9baf6a886a6...</code></p>
+          </div>
+
+          <div class="flex items-center gap-2 pt-2 border-t border-border/60">
+    
+            <a href="screens/desktop/dashboard-monochrome-editorial.html" target="_blank" class="flex-1 text-center py-2 px-3 rounded-lg bg-primary/10 hover:bg-primary text-primary hover:text-black font-display font-semibold text-xs transition-all flex items-center justify-center gap-1">
+              <span class="material-symbols-outlined text-sm">open_in_new</span>
+              Ouvrir HTML
+            </a>
+        
+            <a href="screenshots/dashboard-monochrome-editorial_f9baf6a8.jpg" target="_blank" class="py-2 px-3 rounded-lg bg-surface-card-hover hover:bg-neutral-800 text-neutral-300 hover:text-white font-display font-semibold text-xs transition-all flex items-center justify-center gap-1" title="Voir la capture complète">
+              <span class="material-symbols-outlined text-sm">image</span>
+            </a>
+        
+          </div>
+        </div>
+      </div>
+    
+      <div class="item-card cat-desktop rounded-2xl bg-surface-card border border-border hover:border-primary/40 transition-all flex flex-col overflow-hidden group">
+        <div class="aspect-video bg-[#0B0F10] relative overflow-hidden flex items-center justify-center p-2 border-b border-border">
+    
+          <img src="screenshots/checklist-cartes-raretes_bc7899a5.jpg" alt="Checklist Cartes & Raretés" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300">
+        
+          <div class="absolute top-3 left-3">
+            <span class="text-[10px] font-display font-bold px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 uppercase tracking-wider">PC / Desktop</span>
+          </div>
+        </div>
+
+        <div class="p-4 flex flex-col flex-1 justify-between gap-3">
+          <div>
+            <h3 class="font-display font-semibold text-sm text-white group-hover:text-primary transition-colors line-clamp-1">Checklist Cartes & Raretés</h3>
+            <p class="text-xs text-neutral-400 mt-1 line-clamp-1">Identifiant : <code class="text-neutral-500">bc7899a504d5...</code></p>
+          </div>
+
+          <div class="flex items-center gap-2 pt-2 border-t border-border/60">
+    
+            <a href="screens/desktop/checklist-cartes-raretes.html" target="_blank" class="flex-1 text-center py-2 px-3 rounded-lg bg-primary/10 hover:bg-primary text-primary hover:text-black font-display font-semibold text-xs transition-all flex items-center justify-center gap-1">
+              <span class="material-symbols-outlined text-sm">open_in_new</span>
+              Ouvrir HTML
+            </a>
+        
+            <a href="screenshots/checklist-cartes-raretes_bc7899a5.jpg" target="_blank" class="py-2 px-3 rounded-lg bg-surface-card-hover hover:bg-neutral-800 text-neutral-300 hover:text-white font-display font-semibold text-xs transition-all flex items-center justify-center gap-1" title="Voir la capture complète">
+              <span class="material-symbols-outlined text-sm">image</span>
+            </a>
+        
+          </div>
+        </div>
+      </div>
+    
+      <div class="item-card cat-desktop rounded-2xl bg-surface-card border border-border hover:border-primary/40 transition-all flex flex-col overflow-hidden group">
+        <div class="aspect-video bg-[#0B0F10] relative overflow-hidden flex items-center justify-center p-2 border-b border-border">
+    
+          <img src="screenshots/checklist-etincelle-de-rebellion-star-wars-unlimited_abb1220f.jpg" alt="Checklist Étincelle de Rébellion - Star Wars: Unlimited" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300">
+        
+          <div class="absolute top-3 left-3">
+            <span class="text-[10px] font-display font-bold px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 uppercase tracking-wider">PC / Desktop</span>
+          </div>
+        </div>
+
+        <div class="p-4 flex flex-col flex-1 justify-between gap-3">
+          <div>
+            <h3 class="font-display font-semibold text-sm text-white group-hover:text-primary transition-colors line-clamp-1">Checklist Étincelle de Rébellion - Star Wars: Unlimited</h3>
+            <p class="text-xs text-neutral-400 mt-1 line-clamp-1">Identifiant : <code class="text-neutral-500">abb1220fe64d...</code></p>
+          </div>
+
+          <div class="flex items-center gap-2 pt-2 border-t border-border/60">
+    
+            <a href="screens/desktop/checklist-etincelle-de-rebellion-star-wars-unlimited.html" target="_blank" class="flex-1 text-center py-2 px-3 rounded-lg bg-primary/10 hover:bg-primary text-primary hover:text-black font-display font-semibold text-xs transition-all flex items-center justify-center gap-1">
+              <span class="material-symbols-outlined text-sm">open_in_new</span>
+              Ouvrir HTML
+            </a>
+        
+            <a href="screenshots/checklist-etincelle-de-rebellion-star-wars-unlimited_abb1220f.jpg" target="_blank" class="py-2 px-3 rounded-lg bg-surface-card-hover hover:bg-neutral-800 text-neutral-300 hover:text-white font-display font-semibold text-xs transition-all flex items-center justify-center gap-1" title="Voir la capture complète">
+              <span class="material-symbols-outlined text-sm">image</span>
+            </a>
+        
+          </div>
+        </div>
+      </div>
+    
+      <div class="item-card cat-desktop rounded-2xl bg-surface-card border border-border hover:border-primary/40 transition-all flex flex-col overflow-hidden group">
+        <div class="aspect-video bg-[#0B0F10] relative overflow-hidden flex items-center justify-center p-2 border-b border-border">
+    
+          <img src="screenshots/profil-preferences_0dbf107e.jpg" alt="Profil & Préférences" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300">
+        
+          <div class="absolute top-3 left-3">
+            <span class="text-[10px] font-display font-bold px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 uppercase tracking-wider">PC / Desktop</span>
+          </div>
+        </div>
+
+        <div class="p-4 flex flex-col flex-1 justify-between gap-3">
+          <div>
+            <h3 class="font-display font-semibold text-sm text-white group-hover:text-primary transition-colors line-clamp-1">Profil & Préférences</h3>
+            <p class="text-xs text-neutral-400 mt-1 line-clamp-1">Identifiant : <code class="text-neutral-500">0dbf107e959b...</code></p>
+          </div>
+
+          <div class="flex items-center gap-2 pt-2 border-t border-border/60">
+    
+            <a href="screens/desktop/profil-preferences.html" target="_blank" class="flex-1 text-center py-2 px-3 rounded-lg bg-primary/10 hover:bg-primary text-primary hover:text-black font-display font-semibold text-xs transition-all flex items-center justify-center gap-1">
+              <span class="material-symbols-outlined text-sm">open_in_new</span>
+              Ouvrir HTML
+            </a>
+        
+            <a href="screenshots/profil-preferences_0dbf107e.jpg" target="_blank" class="py-2 px-3 rounded-lg bg-surface-card-hover hover:bg-neutral-800 text-neutral-300 hover:text-white font-display font-semibold text-xs transition-all flex items-center justify-center gap-1" title="Voir la capture complète">
+              <span class="material-symbols-outlined text-sm">image</span>
+            </a>
+        
+          </div>
+        </div>
+      </div>
+    
+      <div class="item-card cat-desktop rounded-2xl bg-surface-card border border-border hover:border-primary/40 transition-all flex flex-col overflow-hidden group">
+        <div class="aspect-video bg-[#0B0F10] relative overflow-hidden flex items-center justify-center p-2 border-b border-border">
+    
+          <img src="screenshots/mes-extensions-star-wars-unlimited_48b84db5.jpg" alt="Mes Extensions - Star Wars: Unlimited" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300">
+        
+          <div class="absolute top-3 left-3">
+            <span class="text-[10px] font-display font-bold px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 uppercase tracking-wider">PC / Desktop</span>
+          </div>
+        </div>
+
+        <div class="p-4 flex flex-col flex-1 justify-between gap-3">
+          <div>
+            <h3 class="font-display font-semibold text-sm text-white group-hover:text-primary transition-colors line-clamp-1">Mes Extensions - Star Wars: Unlimited</h3>
+            <p class="text-xs text-neutral-400 mt-1 line-clamp-1">Identifiant : <code class="text-neutral-500">48b84db5be33...</code></p>
+          </div>
+
+          <div class="flex items-center gap-2 pt-2 border-t border-border/60">
+    
+            <a href="screens/desktop/mes-extensions-star-wars-unlimited.html" target="_blank" class="flex-1 text-center py-2 px-3 rounded-lg bg-primary/10 hover:bg-primary text-primary hover:text-black font-display font-semibold text-xs transition-all flex items-center justify-center gap-1">
+              <span class="material-symbols-outlined text-sm">open_in_new</span>
+              Ouvrir HTML
+            </a>
+        
+            <a href="screenshots/mes-extensions-star-wars-unlimited_48b84db5.jpg" target="_blank" class="py-2 px-3 rounded-lg bg-surface-card-hover hover:bg-neutral-800 text-neutral-300 hover:text-white font-display font-semibold text-xs transition-all flex items-center justify-center gap-1" title="Voir la capture complète">
+              <span class="material-symbols-outlined text-sm">image</span>
+            </a>
+        
+          </div>
+        </div>
+      </div>
+    
+      <div class="item-card cat-desktop rounded-2xl bg-surface-card border border-border hover:border-primary/40 transition-all flex flex-col overflow-hidden group">
+        <div class="aspect-video bg-[#0B0F10] relative overflow-hidden flex items-center justify-center p-2 border-b border-border">
+    
+          <img src="screenshots/tableau-de-bord-simple_55a70293.jpg" alt="Tableau de bord — Simple" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300">
+        
+          <div class="absolute top-3 left-3">
+            <span class="text-[10px] font-display font-bold px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 uppercase tracking-wider">PC / Desktop</span>
+          </div>
+        </div>
+
+        <div class="p-4 flex flex-col flex-1 justify-between gap-3">
+          <div>
+            <h3 class="font-display font-semibold text-sm text-white group-hover:text-primary transition-colors line-clamp-1">Tableau de bord — Simple</h3>
+            <p class="text-xs text-neutral-400 mt-1 line-clamp-1">Identifiant : <code class="text-neutral-500">55a702931f92...</code></p>
+          </div>
+
+          <div class="flex items-center gap-2 pt-2 border-t border-border/60">
+    
+            <a href="screens/desktop/tableau-de-bord-simple.html" target="_blank" class="flex-1 text-center py-2 px-3 rounded-lg bg-primary/10 hover:bg-primary text-primary hover:text-black font-display font-semibold text-xs transition-all flex items-center justify-center gap-1">
+              <span class="material-symbols-outlined text-sm">open_in_new</span>
+              Ouvrir HTML
+            </a>
+        
+            <a href="screenshots/tableau-de-bord-simple_55a70293.jpg" target="_blank" class="py-2 px-3 rounded-lg bg-surface-card-hover hover:bg-neutral-800 text-neutral-300 hover:text-white font-display font-semibold text-xs transition-all flex items-center justify-center gap-1" title="Voir la capture complète">
+              <span class="material-symbols-outlined text-sm">image</span>
+            </a>
+        
+          </div>
+        </div>
+      </div>
+    
+      <div class="item-card cat-desktop rounded-2xl bg-surface-card border border-border hover:border-primary/40 transition-all flex flex-col overflow-hidden group">
+        <div class="aspect-video bg-[#0B0F10] relative overflow-hidden flex items-center justify-center p-2 border-b border-border">
+    
+          <img src="screenshots/checklist-extension-cartes-grisees_9671b3e2.jpg" alt="Checklist Extension & Cartes Grisées" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300">
+        
+          <div class="absolute top-3 left-3">
+            <span class="text-[10px] font-display font-bold px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 uppercase tracking-wider">PC / Desktop</span>
+          </div>
+        </div>
+
+        <div class="p-4 flex flex-col flex-1 justify-between gap-3">
+          <div>
+            <h3 class="font-display font-semibold text-sm text-white group-hover:text-primary transition-colors line-clamp-1">Checklist Extension & Cartes Grisées</h3>
+            <p class="text-xs text-neutral-400 mt-1 line-clamp-1">Identifiant : <code class="text-neutral-500">9671b3e2b193...</code></p>
+          </div>
+
+          <div class="flex items-center gap-2 pt-2 border-t border-border/60">
+    
+            <a href="screens/desktop/checklist-extension-cartes-grisees.html" target="_blank" class="flex-1 text-center py-2 px-3 rounded-lg bg-primary/10 hover:bg-primary text-primary hover:text-black font-display font-semibold text-xs transition-all flex items-center justify-center gap-1">
+              <span class="material-symbols-outlined text-sm">open_in_new</span>
+              Ouvrir HTML
+            </a>
+        
+            <a href="screenshots/checklist-extension-cartes-grisees_9671b3e2.jpg" target="_blank" class="py-2 px-3 rounded-lg bg-surface-card-hover hover:bg-neutral-800 text-neutral-300 hover:text-white font-display font-semibold text-xs transition-all flex items-center justify-center gap-1" title="Voir la capture complète">
+              <span class="material-symbols-outlined text-sm">image</span>
+            </a>
+        
+          </div>
+        </div>
+      </div>
+    
+      <div class="item-card cat-desktop rounded-2xl bg-surface-card border border-border hover:border-primary/40 transition-all flex flex-col overflow-hidden group">
+        <div class="aspect-video bg-[#0B0F10] relative overflow-hidden flex items-center justify-center p-2 border-b border-border">
+    
+          <img src="screenshots/dashboard-menthe-givree-noir-titane_d3c7148f.jpg" alt="Dashboard — Menthe Givrée & Noir Titane" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300">
+        
+          <div class="absolute top-3 left-3">
+            <span class="text-[10px] font-display font-bold px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 uppercase tracking-wider">PC / Desktop</span>
+          </div>
+        </div>
+
+        <div class="p-4 flex flex-col flex-1 justify-between gap-3">
+          <div>
+            <h3 class="font-display font-semibold text-sm text-white group-hover:text-primary transition-colors line-clamp-1">Dashboard — Menthe Givrée & Noir Titane</h3>
+            <p class="text-xs text-neutral-400 mt-1 line-clamp-1">Identifiant : <code class="text-neutral-500">d3c7148f4f39...</code></p>
+          </div>
+
+          <div class="flex items-center gap-2 pt-2 border-t border-border/60">
+    
+            <a href="screens/desktop/dashboard-menthe-givree-noir-titane.html" target="_blank" class="flex-1 text-center py-2 px-3 rounded-lg bg-primary/10 hover:bg-primary text-primary hover:text-black font-display font-semibold text-xs transition-all flex items-center justify-center gap-1">
+              <span class="material-symbols-outlined text-sm">open_in_new</span>
+              Ouvrir HTML
+            </a>
+        
+            <a href="screenshots/dashboard-menthe-givree-noir-titane_d3c7148f.jpg" target="_blank" class="py-2 px-3 rounded-lg bg-surface-card-hover hover:bg-neutral-800 text-neutral-300 hover:text-white font-display font-semibold text-xs transition-all flex items-center justify-center gap-1" title="Voir la capture complète">
+              <span class="material-symbols-outlined text-sm">image</span>
+            </a>
+        
+          </div>
+        </div>
+      </div>
+    
+      <div class="item-card cat-desktop rounded-2xl bg-surface-card border border-border hover:border-primary/40 transition-all flex flex-col overflow-hidden group">
+        <div class="aspect-video bg-[#0B0F10] relative overflow-hidden flex items-center justify-center p-2 border-b border-border">
+    
+          <img src="screenshots/dashboard-collections-pc_34cedded.jpg" alt="Dashboard Collections PC" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300">
+        
+          <div class="absolute top-3 left-3">
+            <span class="text-[10px] font-display font-bold px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 uppercase tracking-wider">PC / Desktop</span>
+          </div>
+        </div>
+
+        <div class="p-4 flex flex-col flex-1 justify-between gap-3">
+          <div>
+            <h3 class="font-display font-semibold text-sm text-white group-hover:text-primary transition-colors line-clamp-1">Dashboard Collections PC</h3>
+            <p class="text-xs text-neutral-400 mt-1 line-clamp-1">Identifiant : <code class="text-neutral-500">34ceddeda06f...</code></p>
+          </div>
+
+          <div class="flex items-center gap-2 pt-2 border-t border-border/60">
+    
+            <a href="screens/desktop/dashboard-collections-pc.html" target="_blank" class="flex-1 text-center py-2 px-3 rounded-lg bg-primary/10 hover:bg-primary text-primary hover:text-black font-display font-semibold text-xs transition-all flex items-center justify-center gap-1">
+              <span class="material-symbols-outlined text-sm">open_in_new</span>
+              Ouvrir HTML
+            </a>
+        
+            <a href="screenshots/dashboard-collections-pc_34cedded.jpg" target="_blank" class="py-2 px-3 rounded-lg bg-surface-card-hover hover:bg-neutral-800 text-neutral-300 hover:text-white font-display font-semibold text-xs transition-all flex items-center justify-center gap-1" title="Voir la capture complète">
+              <span class="material-symbols-outlined text-sm">image</span>
+            </a>
+        
+          </div>
+        </div>
+      </div>
+    
+      <div class="item-card cat-desktop rounded-2xl bg-surface-card border border-border hover:border-primary/40 transition-all flex flex-col overflow-hidden group">
+        <div class="aspect-video bg-[#0B0F10] relative overflow-hidden flex items-center justify-center p-2 border-b border-border">
+    
+          <img src="screenshots/checklist-ambre-dore-obsidian_dc332c30.jpg" alt="Checklist — Ambre Doré & Obsidian" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300">
+        
+          <div class="absolute top-3 left-3">
+            <span class="text-[10px] font-display font-bold px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 uppercase tracking-wider">PC / Desktop</span>
+          </div>
+        </div>
+
+        <div class="p-4 flex flex-col flex-1 justify-between gap-3">
+          <div>
+            <h3 class="font-display font-semibold text-sm text-white group-hover:text-primary transition-colors line-clamp-1">Checklist — Ambre Doré & Obsidian</h3>
+            <p class="text-xs text-neutral-400 mt-1 line-clamp-1">Identifiant : <code class="text-neutral-500">dc332c3036ee...</code></p>
+          </div>
+
+          <div class="flex items-center gap-2 pt-2 border-t border-border/60">
+    
+            <a href="screens/desktop/checklist-ambre-dore-obsidian.html" target="_blank" class="flex-1 text-center py-2 px-3 rounded-lg bg-primary/10 hover:bg-primary text-primary hover:text-black font-display font-semibold text-xs transition-all flex items-center justify-center gap-1">
+              <span class="material-symbols-outlined text-sm">open_in_new</span>
+              Ouvrir HTML
+            </a>
+        
+            <a href="screenshots/checklist-ambre-dore-obsidian_dc332c30.jpg" target="_blank" class="py-2 px-3 rounded-lg bg-surface-card-hover hover:bg-neutral-800 text-neutral-300 hover:text-white font-display font-semibold text-xs transition-all flex items-center justify-center gap-1" title="Voir la capture complète">
+              <span class="material-symbols-outlined text-sm">image</span>
+            </a>
+        
+          </div>
+        </div>
+      </div>
+    
+      <div class="item-card cat-desktop rounded-2xl bg-surface-card border border-border hover:border-primary/40 transition-all flex flex-col overflow-hidden group">
+        <div class="aspect-video bg-[#0B0F10] relative overflow-hidden flex items-center justify-center p-2 border-b border-border">
+    
+          <img src="screenshots/checklist-monochrome-editorial_e2c5f3b2.jpg" alt="Checklist — Monochrome Éditorial" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300">
+        
+          <div class="absolute top-3 left-3">
+            <span class="text-[10px] font-display font-bold px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 uppercase tracking-wider">PC / Desktop</span>
+          </div>
+        </div>
+
+        <div class="p-4 flex flex-col flex-1 justify-between gap-3">
+          <div>
+            <h3 class="font-display font-semibold text-sm text-white group-hover:text-primary transition-colors line-clamp-1">Checklist — Monochrome Éditorial</h3>
+            <p class="text-xs text-neutral-400 mt-1 line-clamp-1">Identifiant : <code class="text-neutral-500">e2c5f3b2eea1...</code></p>
+          </div>
+
+          <div class="flex items-center gap-2 pt-2 border-t border-border/60">
+    
+            <a href="screens/desktop/checklist-monochrome-editorial.html" target="_blank" class="flex-1 text-center py-2 px-3 rounded-lg bg-primary/10 hover:bg-primary text-primary hover:text-black font-display font-semibold text-xs transition-all flex items-center justify-center gap-1">
+              <span class="material-symbols-outlined text-sm">open_in_new</span>
+              Ouvrir HTML
+            </a>
+        
+            <a href="screenshots/checklist-monochrome-editorial_e2c5f3b2.jpg" target="_blank" class="py-2 px-3 rounded-lg bg-surface-card-hover hover:bg-neutral-800 text-neutral-300 hover:text-white font-display font-semibold text-xs transition-all flex items-center justify-center gap-1" title="Voir la capture complète">
+              <span class="material-symbols-outlined text-sm">image</span>
+            </a>
+        
+          </div>
+        </div>
+      </div>
+    
+      <div class="item-card cat-desktop rounded-2xl bg-surface-card border border-border hover:border-primary/40 transition-all flex flex-col overflow-hidden group">
+        <div class="aspect-video bg-[#0B0F10] relative overflow-hidden flex items-center justify-center p-2 border-b border-border">
+    
+          <img src="screenshots/mon-compte-desktop_752773cc.jpg" alt="Mon Compte Desktop" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300">
+        
+          <div class="absolute top-3 left-3">
+            <span class="text-[10px] font-display font-bold px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 uppercase tracking-wider">PC / Desktop</span>
+          </div>
+        </div>
+
+        <div class="p-4 flex flex-col flex-1 justify-between gap-3">
+          <div>
+            <h3 class="font-display font-semibold text-sm text-white group-hover:text-primary transition-colors line-clamp-1">Mon Compte Desktop</h3>
+            <p class="text-xs text-neutral-400 mt-1 line-clamp-1">Identifiant : <code class="text-neutral-500">752773cce20a...</code></p>
+          </div>
+
+          <div class="flex items-center gap-2 pt-2 border-t border-border/60">
+    
+            <a href="screens/desktop/mon-compte-desktop.html" target="_blank" class="flex-1 text-center py-2 px-3 rounded-lg bg-primary/10 hover:bg-primary text-primary hover:text-black font-display font-semibold text-xs transition-all flex items-center justify-center gap-1">
+              <span class="material-symbols-outlined text-sm">open_in_new</span>
+              Ouvrir HTML
+            </a>
+        
+            <a href="screenshots/mon-compte-desktop_752773cc.jpg" target="_blank" class="py-2 px-3 rounded-lg bg-surface-card-hover hover:bg-neutral-800 text-neutral-300 hover:text-white font-display font-semibold text-xs transition-all flex items-center justify-center gap-1" title="Voir la capture complète">
+              <span class="material-symbols-outlined text-sm">image</span>
+            </a>
+        
+          </div>
+        </div>
+      </div>
+    
+      <div class="item-card cat-desktop rounded-2xl bg-surface-card border border-border hover:border-primary/40 transition-all flex flex-col overflow-hidden group">
+        <div class="aspect-video bg-[#0B0F10] relative overflow-hidden flex items-center justify-center p-2 border-b border-border">
+    
+          <img src="screenshots/checklist-monochrome-editorial_fcf46320.jpg" alt="Checklist — Monochrome Éditorial" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300">
+        
+          <div class="absolute top-3 left-3">
+            <span class="text-[10px] font-display font-bold px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 uppercase tracking-wider">PC / Desktop</span>
+          </div>
+        </div>
+
+        <div class="p-4 flex flex-col flex-1 justify-between gap-3">
+          <div>
+            <h3 class="font-display font-semibold text-sm text-white group-hover:text-primary transition-colors line-clamp-1">Checklist — Monochrome Éditorial</h3>
+            <p class="text-xs text-neutral-400 mt-1 line-clamp-1">Identifiant : <code class="text-neutral-500">fcf46320dc14...</code></p>
+          </div>
+
+          <div class="flex items-center gap-2 pt-2 border-t border-border/60">
+    
+            <a href="screens/desktop/checklist-monochrome-editorial_fcf463.html" target="_blank" class="flex-1 text-center py-2 px-3 rounded-lg bg-primary/10 hover:bg-primary text-primary hover:text-black font-display font-semibold text-xs transition-all flex items-center justify-center gap-1">
+              <span class="material-symbols-outlined text-sm">open_in_new</span>
+              Ouvrir HTML
+            </a>
+        
+            <a href="screenshots/checklist-monochrome-editorial_fcf46320.jpg" target="_blank" class="py-2 px-3 rounded-lg bg-surface-card-hover hover:bg-neutral-800 text-neutral-300 hover:text-white font-display font-semibold text-xs transition-all flex items-center justify-center gap-1" title="Voir la capture complète">
+              <span class="material-symbols-outlined text-sm">image</span>
+            </a>
+        
+          </div>
+        </div>
+      </div>
+    
+      <div class="item-card cat-desktop rounded-2xl bg-surface-card border border-border hover:border-primary/40 transition-all flex flex-col overflow-hidden group">
+        <div class="aspect-video bg-[#0B0F10] relative overflow-hidden flex items-center justify-center p-2 border-b border-border">
+    
+          <img src="screenshots/checklist-menthe-givree-noir-titane_12a708f2.jpg" alt="Checklist — Menthe Givrée & Noir Titane" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300">
+        
+          <div class="absolute top-3 left-3">
+            <span class="text-[10px] font-display font-bold px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 uppercase tracking-wider">PC / Desktop</span>
+          </div>
+        </div>
+
+        <div class="p-4 flex flex-col flex-1 justify-between gap-3">
+          <div>
+            <h3 class="font-display font-semibold text-sm text-white group-hover:text-primary transition-colors line-clamp-1">Checklist — Menthe Givrée & Noir Titane</h3>
+            <p class="text-xs text-neutral-400 mt-1 line-clamp-1">Identifiant : <code class="text-neutral-500">12a708f275a4...</code></p>
+          </div>
+
+          <div class="flex items-center gap-2 pt-2 border-t border-border/60">
+    
+            <a href="screens/desktop/checklist-menthe-givree-noir-titane.html" target="_blank" class="flex-1 text-center py-2 px-3 rounded-lg bg-primary/10 hover:bg-primary text-primary hover:text-black font-display font-semibold text-xs transition-all flex items-center justify-center gap-1">
+              <span class="material-symbols-outlined text-sm">open_in_new</span>
+              Ouvrir HTML
+            </a>
+        
+            <a href="screenshots/checklist-menthe-givree-noir-titane_12a708f2.jpg" target="_blank" class="py-2 px-3 rounded-lg bg-surface-card-hover hover:bg-neutral-800 text-neutral-300 hover:text-white font-display font-semibold text-xs transition-all flex items-center justify-center gap-1" title="Voir la capture complète">
+              <span class="material-symbols-outlined text-sm">image</span>
+            </a>
+        
+          </div>
+        </div>
+      </div>
+    
+      <div class="item-card cat-mobile rounded-2xl bg-surface-card border border-border hover:border-primary/40 transition-all flex flex-col overflow-hidden group">
+        <div class="aspect-video bg-[#0B0F10] relative overflow-hidden flex items-center justify-center p-2 border-b border-border">
+    
+          <img src="screenshots/scanner-ia-de-carte_6efedd47.jpg" alt="Scanner IA de Carte" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300">
+        
+          <div class="absolute top-3 left-3">
+            <span class="text-[10px] font-display font-bold px-2 py-0.5 rounded-full bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 uppercase tracking-wider">Mobile</span>
+          </div>
+        </div>
+
+        <div class="p-4 flex flex-col flex-1 justify-between gap-3">
+          <div>
+            <h3 class="font-display font-semibold text-sm text-white group-hover:text-primary transition-colors line-clamp-1">Scanner IA de Carte</h3>
+            <p class="text-xs text-neutral-400 mt-1 line-clamp-1">Identifiant : <code class="text-neutral-500">6efedd470571...</code></p>
+          </div>
+
+          <div class="flex items-center gap-2 pt-2 border-t border-border/60">
+    
+            <a href="screens/mobile/scanner-ia-de-carte.html" target="_blank" class="flex-1 text-center py-2 px-3 rounded-lg bg-primary/10 hover:bg-primary text-primary hover:text-black font-display font-semibold text-xs transition-all flex items-center justify-center gap-1">
+              <span class="material-symbols-outlined text-sm">open_in_new</span>
+              Ouvrir HTML
+            </a>
+        
+            <a href="screenshots/scanner-ia-de-carte_6efedd47.jpg" target="_blank" class="py-2 px-3 rounded-lg bg-surface-card-hover hover:bg-neutral-800 text-neutral-300 hover:text-white font-display font-semibold text-xs transition-all flex items-center justify-center gap-1" title="Voir la capture complète">
+              <span class="material-symbols-outlined text-sm">image</span>
+            </a>
+        
+          </div>
+        </div>
+      </div>
+    
+      <div class="item-card cat-mobile rounded-2xl bg-surface-card border border-border hover:border-primary/40 transition-all flex flex-col overflow-hidden group">
+        <div class="aspect-video bg-[#0B0F10] relative overflow-hidden flex items-center justify-center p-2 border-b border-border">
+    
+          <img src="screenshots/dashboard-mobile_c8b45a72.jpg" alt="Dashboard Mobile" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300">
+        
+          <div class="absolute top-3 left-3">
+            <span class="text-[10px] font-display font-bold px-2 py-0.5 rounded-full bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 uppercase tracking-wider">Mobile</span>
+          </div>
+        </div>
+
+        <div class="p-4 flex flex-col flex-1 justify-between gap-3">
+          <div>
+            <h3 class="font-display font-semibold text-sm text-white group-hover:text-primary transition-colors line-clamp-1">Dashboard Mobile</h3>
+            <p class="text-xs text-neutral-400 mt-1 line-clamp-1">Identifiant : <code class="text-neutral-500">c8b45a7275e7...</code></p>
+          </div>
+
+          <div class="flex items-center gap-2 pt-2 border-t border-border/60">
+    
+            <a href="screens/mobile/dashboard-mobile.html" target="_blank" class="flex-1 text-center py-2 px-3 rounded-lg bg-primary/10 hover:bg-primary text-primary hover:text-black font-display font-semibold text-xs transition-all flex items-center justify-center gap-1">
+              <span class="material-symbols-outlined text-sm">open_in_new</span>
+              Ouvrir HTML
+            </a>
+        
+            <a href="screenshots/dashboard-mobile_c8b45a72.jpg" target="_blank" class="py-2 px-3 rounded-lg bg-surface-card-hover hover:bg-neutral-800 text-neutral-300 hover:text-white font-display font-semibold text-xs transition-all flex items-center justify-center gap-1" title="Voir la capture complète">
+              <span class="material-symbols-outlined text-sm">image</span>
+            </a>
+        
+          </div>
+        </div>
+      </div>
+    
+      <div class="item-card cat-mobile rounded-2xl bg-surface-card border border-border hover:border-primary/40 transition-all flex flex-col overflow-hidden group">
+        <div class="aspect-video bg-[#0B0F10] relative overflow-hidden flex items-center justify-center p-2 border-b border-border">
+    
+          <img src="screenshots/fiche-carte-argus_920a01e4.jpg" alt="Fiche Carte & Argus" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300">
+        
+          <div class="absolute top-3 left-3">
+            <span class="text-[10px] font-display font-bold px-2 py-0.5 rounded-full bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 uppercase tracking-wider">Mobile</span>
+          </div>
+        </div>
+
+        <div class="p-4 flex flex-col flex-1 justify-between gap-3">
+          <div>
+            <h3 class="font-display font-semibold text-sm text-white group-hover:text-primary transition-colors line-clamp-1">Fiche Carte & Argus</h3>
+            <p class="text-xs text-neutral-400 mt-1 line-clamp-1">Identifiant : <code class="text-neutral-500">920a01e450fb...</code></p>
+          </div>
+
+          <div class="flex items-center gap-2 pt-2 border-t border-border/60">
+    
+            <a href="screens/mobile/fiche-carte-argus.html" target="_blank" class="flex-1 text-center py-2 px-3 rounded-lg bg-primary/10 hover:bg-primary text-primary hover:text-black font-display font-semibold text-xs transition-all flex items-center justify-center gap-1">
+              <span class="material-symbols-outlined text-sm">open_in_new</span>
+              Ouvrir HTML
+            </a>
+        
+            <a href="screenshots/fiche-carte-argus_920a01e4.jpg" target="_blank" class="py-2 px-3 rounded-lg bg-surface-card-hover hover:bg-neutral-800 text-neutral-300 hover:text-white font-display font-semibold text-xs transition-all flex items-center justify-center gap-1" title="Voir la capture complète">
+              <span class="material-symbols-outlined text-sm">image</span>
+            </a>
+        
+          </div>
+        </div>
+      </div>
+    
+      <div class="item-card cat-mobile rounded-2xl bg-surface-card border border-border hover:border-primary/40 transition-all flex flex-col overflow-hidden group">
+        <div class="aspect-video bg-[#0B0F10] relative overflow-hidden flex items-center justify-center p-2 border-b border-border">
+    
+          <img src="screenshots/mes-collections_f46bba95.jpg" alt="Mes Collections" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300">
+        
+          <div class="absolute top-3 left-3">
+            <span class="text-[10px] font-display font-bold px-2 py-0.5 rounded-full bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 uppercase tracking-wider">Mobile</span>
+          </div>
+        </div>
+
+        <div class="p-4 flex flex-col flex-1 justify-between gap-3">
+          <div>
+            <h3 class="font-display font-semibold text-sm text-white group-hover:text-primary transition-colors line-clamp-1">Mes Collections</h3>
+            <p class="text-xs text-neutral-400 mt-1 line-clamp-1">Identifiant : <code class="text-neutral-500">f46bba95f04d...</code></p>
+          </div>
+
+          <div class="flex items-center gap-2 pt-2 border-t border-border/60">
+    
+            <a href="screens/mobile/mes-collections.html" target="_blank" class="flex-1 text-center py-2 px-3 rounded-lg bg-primary/10 hover:bg-primary text-primary hover:text-black font-display font-semibold text-xs transition-all flex items-center justify-center gap-1">
+              <span class="material-symbols-outlined text-sm">open_in_new</span>
+              Ouvrir HTML
+            </a>
+        
+            <a href="screenshots/mes-collections_f46bba95.jpg" target="_blank" class="py-2 px-3 rounded-lg bg-surface-card-hover hover:bg-neutral-800 text-neutral-300 hover:text-white font-display font-semibold text-xs transition-all flex items-center justify-center gap-1" title="Voir la capture complète">
+              <span class="material-symbols-outlined text-sm">image</span>
+            </a>
+        
+          </div>
+        </div>
+      </div>
+    
+      <div class="item-card cat-logos rounded-2xl bg-surface-card border border-border hover:border-primary/40 transition-all flex flex-col overflow-hidden group">
+        <div class="aspect-video bg-[#0B0F10] relative overflow-hidden flex items-center justify-center p-2 border-b border-border">
+    
+          <img src="logos/logo-3-cartes-monochrome-editorial.svg" alt="Logo 3 Cartes — Monochrome Éditorial" class="max-h-24 max-w-full object-contain filter drop-shadow">
+        
+          <div class="absolute top-3 left-3">
+            <span class="text-[10px] font-display font-bold px-2 py-0.5 rounded-full bg-purple-500/20 text-purple-300 border border-purple-500/30 uppercase tracking-wider">Logo SVG</span>
+          </div>
+        </div>
+
+        <div class="p-4 flex flex-col flex-1 justify-between gap-3">
+          <div>
+            <h3 class="font-display font-semibold text-sm text-white group-hover:text-primary transition-colors line-clamp-1">Logo 3 Cartes — Monochrome Éditorial</h3>
+            <p class="text-xs text-neutral-400 mt-1 line-clamp-1">Identifiant : <code class="text-neutral-500">82f0e3a53f8c...</code></p>
+          </div>
+
+          <div class="flex items-center gap-2 pt-2 border-t border-border/60">
+    
+            <a href="logos/logo-3-cartes-monochrome-editorial.svg" target="_blank" class="flex-1 text-center py-2 px-3 rounded-lg bg-primary/10 hover:bg-primary text-primary hover:text-black font-display font-semibold text-xs transition-all flex items-center justify-center gap-1">
+              <span class="material-symbols-outlined text-sm">open_in_new</span>
+              Ouvrir SVG
+            </a>
+        
+            <a href="screenshots/logo-3-cartes-monochrome-editorial_82f0e3a5.jpg" target="_blank" class="py-2 px-3 rounded-lg bg-surface-card-hover hover:bg-neutral-800 text-neutral-300 hover:text-white font-display font-semibold text-xs transition-all flex items-center justify-center gap-1" title="Voir la capture complète">
+              <span class="material-symbols-outlined text-sm">image</span>
+            </a>
+        
+          </div>
+        </div>
+      </div>
+    
+      <div class="item-card cat-logos rounded-2xl bg-surface-card border border-border hover:border-primary/40 transition-all flex flex-col overflow-hidden group">
+        <div class="aspect-video bg-[#0B0F10] relative overflow-hidden flex items-center justify-center p-2 border-b border-border">
+    
+          <img src="logos/logo-minty-cartes-ambre-obsidian.svg" alt="Logo Minty — Cartes Ambre & Obsidian" class="max-h-24 max-w-full object-contain filter drop-shadow">
+        
+          <div class="absolute top-3 left-3">
+            <span class="text-[10px] font-display font-bold px-2 py-0.5 rounded-full bg-purple-500/20 text-purple-300 border border-purple-500/30 uppercase tracking-wider">Logo SVG</span>
+          </div>
+        </div>
+
+        <div class="p-4 flex flex-col flex-1 justify-between gap-3">
+          <div>
+            <h3 class="font-display font-semibold text-sm text-white group-hover:text-primary transition-colors line-clamp-1">Logo Minty — Cartes Ambre & Obsidian</h3>
+            <p class="text-xs text-neutral-400 mt-1 line-clamp-1">Identifiant : <code class="text-neutral-500">cc1d817d6203...</code></p>
+          </div>
+
+          <div class="flex items-center gap-2 pt-2 border-t border-border/60">
+    
+            <a href="logos/logo-minty-cartes-ambre-obsidian.svg" target="_blank" class="flex-1 text-center py-2 px-3 rounded-lg bg-primary/10 hover:bg-primary text-primary hover:text-black font-display font-semibold text-xs transition-all flex items-center justify-center gap-1">
+              <span class="material-symbols-outlined text-sm">open_in_new</span>
+              Ouvrir SVG
+            </a>
+        
+            <a href="screenshots/logo-minty-cartes-ambre-obsidian_cc1d817d.jpg" target="_blank" class="py-2 px-3 rounded-lg bg-surface-card-hover hover:bg-neutral-800 text-neutral-300 hover:text-white font-display font-semibold text-xs transition-all flex items-center justify-center gap-1" title="Voir la capture complète">
+              <span class="material-symbols-outlined text-sm">image</span>
+            </a>
+        
+          </div>
+        </div>
+      </div>
+    
+      <div class="item-card cat-logos rounded-2xl bg-surface-card border border-border hover:border-primary/40 transition-all flex flex-col overflow-hidden group">
+        <div class="aspect-video bg-[#0B0F10] relative overflow-hidden flex items-center justify-center p-2 border-b border-border">
+    
+          <img src="logos/logo-3-cartes-menthe-fraiche-emeraude.svg" alt="Logo 3 Cartes — Menthe Fraîche & Émeraude" class="max-h-24 max-w-full object-contain filter drop-shadow">
+        
+          <div class="absolute top-3 left-3">
+            <span class="text-[10px] font-display font-bold px-2 py-0.5 rounded-full bg-purple-500/20 text-purple-300 border border-purple-500/30 uppercase tracking-wider">Logo SVG</span>
+          </div>
+        </div>
+
+        <div class="p-4 flex flex-col flex-1 justify-between gap-3">
+          <div>
+            <h3 class="font-display font-semibold text-sm text-white group-hover:text-primary transition-colors line-clamp-1">Logo 3 Cartes — Menthe Fraîche & Émeraude</h3>
+            <p class="text-xs text-neutral-400 mt-1 line-clamp-1">Identifiant : <code class="text-neutral-500">0ece3a4b1693...</code></p>
+          </div>
+
+          <div class="flex items-center gap-2 pt-2 border-t border-border/60">
+    
+            <a href="logos/logo-3-cartes-menthe-fraiche-emeraude.svg" target="_blank" class="flex-1 text-center py-2 px-3 rounded-lg bg-primary/10 hover:bg-primary text-primary hover:text-black font-display font-semibold text-xs transition-all flex items-center justify-center gap-1">
+              <span class="material-symbols-outlined text-sm">open_in_new</span>
+              Ouvrir SVG
+            </a>
+        
+            <a href="screenshots/logo-3-cartes-menthe-fraiche-emeraude_0ece3a4b.jpg" target="_blank" class="py-2 px-3 rounded-lg bg-surface-card-hover hover:bg-neutral-800 text-neutral-300 hover:text-white font-display font-semibold text-xs transition-all flex items-center justify-center gap-1" title="Voir la capture complète">
+              <span class="material-symbols-outlined text-sm">image</span>
+            </a>
+        
+          </div>
+        </div>
+      </div>
+    
+      <div class="item-card cat-logos rounded-2xl bg-surface-card border border-border hover:border-primary/40 transition-all flex flex-col overflow-hidden group">
+        <div class="aspect-video bg-[#0B0F10] relative overflow-hidden flex items-center justify-center p-2 border-b border-border">
+    
+          <img src="logos/logo-3-cartes-menthe-givree-noir-titane.svg" alt="Logo 3 Cartes — Menthe Givrée & Noir Titane" class="max-h-24 max-w-full object-contain filter drop-shadow">
+        
+          <div class="absolute top-3 left-3">
+            <span class="text-[10px] font-display font-bold px-2 py-0.5 rounded-full bg-purple-500/20 text-purple-300 border border-purple-500/30 uppercase tracking-wider">Logo SVG</span>
+          </div>
+        </div>
+
+        <div class="p-4 flex flex-col flex-1 justify-between gap-3">
+          <div>
+            <h3 class="font-display font-semibold text-sm text-white group-hover:text-primary transition-colors line-clamp-1">Logo 3 Cartes — Menthe Givrée & Noir Titane</h3>
+            <p class="text-xs text-neutral-400 mt-1 line-clamp-1">Identifiant : <code class="text-neutral-500">d35978e793d8...</code></p>
+          </div>
+
+          <div class="flex items-center gap-2 pt-2 border-t border-border/60">
+    
+            <a href="logos/logo-3-cartes-menthe-givree-noir-titane.svg" target="_blank" class="flex-1 text-center py-2 px-3 rounded-lg bg-primary/10 hover:bg-primary text-primary hover:text-black font-display font-semibold text-xs transition-all flex items-center justify-center gap-1">
+              <span class="material-symbols-outlined text-sm">open_in_new</span>
+              Ouvrir SVG
+            </a>
+        
+            <a href="screenshots/logo-3-cartes-menthe-givree-noir-titane_d35978e7.jpg" target="_blank" class="py-2 px-3 rounded-lg bg-surface-card-hover hover:bg-neutral-800 text-neutral-300 hover:text-white font-display font-semibold text-xs transition-all flex items-center justify-center gap-1" title="Voir la capture complète">
+              <span class="material-symbols-outlined text-sm">image</span>
+            </a>
+        
+          </div>
+        </div>
+      </div>
+    
+      <div class="item-card cat-logos rounded-2xl bg-surface-card border border-border hover:border-primary/40 transition-all flex flex-col overflow-hidden group">
+        <div class="aspect-video bg-[#0B0F10] relative overflow-hidden flex items-center justify-center p-2 border-b border-border">
+    
+          <img src="logos/logo-3-cartes-terracotta-soleil-couchant.svg" alt="Logo 3 Cartes — Terracotta & Soleil Couchant" class="max-h-24 max-w-full object-contain filter drop-shadow">
+        
+          <div class="absolute top-3 left-3">
+            <span class="text-[10px] font-display font-bold px-2 py-0.5 rounded-full bg-purple-500/20 text-purple-300 border border-purple-500/30 uppercase tracking-wider">Logo SVG</span>
+          </div>
+        </div>
+
+        <div class="p-4 flex flex-col flex-1 justify-between gap-3">
+          <div>
+            <h3 class="font-display font-semibold text-sm text-white group-hover:text-primary transition-colors line-clamp-1">Logo 3 Cartes — Terracotta & Soleil Couchant</h3>
+            <p class="text-xs text-neutral-400 mt-1 line-clamp-1">Identifiant : <code class="text-neutral-500">a7bf984ba290...</code></p>
+          </div>
+
+          <div class="flex items-center gap-2 pt-2 border-t border-border/60">
+    
+            <a href="logos/logo-3-cartes-terracotta-soleil-couchant.svg" target="_blank" class="flex-1 text-center py-2 px-3 rounded-lg bg-primary/10 hover:bg-primary text-primary hover:text-black font-display font-semibold text-xs transition-all flex items-center justify-center gap-1">
+              <span class="material-symbols-outlined text-sm">open_in_new</span>
+              Ouvrir SVG
+            </a>
+        
+            <a href="screenshots/logo-3-cartes-terracotta-soleil-couchant_a7bf984b.jpg" target="_blank" class="py-2 px-3 rounded-lg bg-surface-card-hover hover:bg-neutral-800 text-neutral-300 hover:text-white font-display font-semibold text-xs transition-all flex items-center justify-center gap-1" title="Voir la capture complète">
+              <span class="material-symbols-outlined text-sm">image</span>
+            </a>
+        
+          </div>
+        </div>
+      </div>
+    
+      <div class="item-card cat-logos rounded-2xl bg-surface-card border border-border hover:border-primary/40 transition-all flex flex-col overflow-hidden group">
+        <div class="aspect-video bg-[#0B0F10] relative overflow-hidden flex items-center justify-center p-2 border-b border-border">
+    
+          <img src="logos/logo-3-cartes-cobalt-klein-indigo.svg" alt="Logo 3 Cartes — Cobalt Klein & Indigo" class="max-h-24 max-w-full object-contain filter drop-shadow">
+        
+          <div class="absolute top-3 left-3">
+            <span class="text-[10px] font-display font-bold px-2 py-0.5 rounded-full bg-purple-500/20 text-purple-300 border border-purple-500/30 uppercase tracking-wider">Logo SVG</span>
+          </div>
+        </div>
+
+        <div class="p-4 flex flex-col flex-1 justify-between gap-3">
+          <div>
+            <h3 class="font-display font-semibold text-sm text-white group-hover:text-primary transition-colors line-clamp-1">Logo 3 Cartes — Cobalt Klein & Indigo</h3>
+            <p class="text-xs text-neutral-400 mt-1 line-clamp-1">Identifiant : <code class="text-neutral-500">685b73d76856...</code></p>
+          </div>
+
+          <div class="flex items-center gap-2 pt-2 border-t border-border/60">
+    
+            <a href="logos/logo-3-cartes-cobalt-klein-indigo.svg" target="_blank" class="flex-1 text-center py-2 px-3 rounded-lg bg-primary/10 hover:bg-primary text-primary hover:text-black font-display font-semibold text-xs transition-all flex items-center justify-center gap-1">
+              <span class="material-symbols-outlined text-sm">open_in_new</span>
+              Ouvrir SVG
+            </a>
+        
+            <a href="screenshots/logo-3-cartes-cobalt-klein-indigo_685b73d7.jpg" target="_blank" class="py-2 px-3 rounded-lg bg-surface-card-hover hover:bg-neutral-800 text-neutral-300 hover:text-white font-display font-semibold text-xs transition-all flex items-center justify-center gap-1" title="Voir la capture complète">
+              <span class="material-symbols-outlined text-sm">image</span>
+            </a>
+        
+          </div>
+        </div>
+      </div>
+    
+      <div class="item-card cat-logos rounded-2xl bg-surface-card border border-border hover:border-primary/40 transition-all flex flex-col overflow-hidden group">
+        <div class="aspect-video bg-[#0B0F10] relative overflow-hidden flex items-center justify-center p-2 border-b border-border">
+    
+          <img src="logos/logo-minty-nebuleuse-violet.svg" alt="Logo Minty Nébuleuse Violet" class="max-h-24 max-w-full object-contain filter drop-shadow">
+        
+          <div class="absolute top-3 left-3">
+            <span class="text-[10px] font-display font-bold px-2 py-0.5 rounded-full bg-purple-500/20 text-purple-300 border border-purple-500/30 uppercase tracking-wider">Logo SVG</span>
+          </div>
+        </div>
+
+        <div class="p-4 flex flex-col flex-1 justify-between gap-3">
+          <div>
+            <h3 class="font-display font-semibold text-sm text-white group-hover:text-primary transition-colors line-clamp-1">Logo Minty Nébuleuse Violet</h3>
+            <p class="text-xs text-neutral-400 mt-1 line-clamp-1">Identifiant : <code class="text-neutral-500">612f312b1b17...</code></p>
+          </div>
+
+          <div class="flex items-center gap-2 pt-2 border-t border-border/60">
+    
+            <a href="logos/logo-minty-nebuleuse-violet.svg" target="_blank" class="flex-1 text-center py-2 px-3 rounded-lg bg-primary/10 hover:bg-primary text-primary hover:text-black font-display font-semibold text-xs transition-all flex items-center justify-center gap-1">
+              <span class="material-symbols-outlined text-sm">open_in_new</span>
+              Ouvrir SVG
+            </a>
+        
+            <a href="screenshots/logo-minty-nebuleuse-violet_612f312b.jpg" target="_blank" class="py-2 px-3 rounded-lg bg-surface-card-hover hover:bg-neutral-800 text-neutral-300 hover:text-white font-display font-semibold text-xs transition-all flex items-center justify-center gap-1" title="Voir la capture complète">
+              <span class="material-symbols-outlined text-sm">image</span>
+            </a>
+        
+          </div>
+        </div>
+      </div>
+    
+      <div class="item-card cat-logos rounded-2xl bg-surface-card border border-border hover:border-primary/40 transition-all flex flex-col overflow-hidden group">
+        <div class="aspect-video bg-[#0B0F10] relative overflow-hidden flex items-center justify-center p-2 border-b border-border">
+    
+          <img src="logos/logo-minty-indigo.svg" alt="Logo Minty Indigo" class="max-h-24 max-w-full object-contain filter drop-shadow">
+        
+          <div class="absolute top-3 left-3">
+            <span class="text-[10px] font-display font-bold px-2 py-0.5 rounded-full bg-purple-500/20 text-purple-300 border border-purple-500/30 uppercase tracking-wider">Logo SVG</span>
+          </div>
+        </div>
+
+        <div class="p-4 flex flex-col flex-1 justify-between gap-3">
+          <div>
+            <h3 class="font-display font-semibold text-sm text-white group-hover:text-primary transition-colors line-clamp-1">Logo Minty Indigo</h3>
+            <p class="text-xs text-neutral-400 mt-1 line-clamp-1">Identifiant : <code class="text-neutral-500">54d3cd98227a...</code></p>
+          </div>
+
+          <div class="flex items-center gap-2 pt-2 border-t border-border/60">
+    
+            <a href="logos/logo-minty-indigo.svg" target="_blank" class="flex-1 text-center py-2 px-3 rounded-lg bg-primary/10 hover:bg-primary text-primary hover:text-black font-display font-semibold text-xs transition-all flex items-center justify-center gap-1">
+              <span class="material-symbols-outlined text-sm">open_in_new</span>
+              Ouvrir SVG
+            </a>
+        
+            <a href="screenshots/logo-minty-indigo_54d3cd98.jpg" target="_blank" class="py-2 px-3 rounded-lg bg-surface-card-hover hover:bg-neutral-800 text-neutral-300 hover:text-white font-display font-semibold text-xs transition-all flex items-center justify-center gap-1" title="Voir la capture complète">
+              <span class="material-symbols-outlined text-sm">image</span>
+            </a>
+        
+          </div>
+        </div>
+      </div>
+    
+      <div class="item-card cat-logos rounded-2xl bg-surface-card border border-border hover:border-primary/40 transition-all flex flex-col overflow-hidden group">
+        <div class="aspect-video bg-[#0B0F10] relative overflow-hidden flex items-center justify-center p-2 border-b border-border">
+    
+          <img src="logos/logo-complet-pile-de-cartes-typographie-minty.svg" alt="Logo Complet — Pile de Cartes & Typographie Minty" class="max-h-24 max-w-full object-contain filter drop-shadow">
+        
+          <div class="absolute top-3 left-3">
+            <span class="text-[10px] font-display font-bold px-2 py-0.5 rounded-full bg-purple-500/20 text-purple-300 border border-purple-500/30 uppercase tracking-wider">Logo SVG</span>
+          </div>
+        </div>
+
+        <div class="p-4 flex flex-col flex-1 justify-between gap-3">
+          <div>
+            <h3 class="font-display font-semibold text-sm text-white group-hover:text-primary transition-colors line-clamp-1">Logo Complet — Pile de Cartes & Typographie Minty</h3>
+            <p class="text-xs text-neutral-400 mt-1 line-clamp-1">Identifiant : <code class="text-neutral-500">e0085224885d...</code></p>
+          </div>
+
+          <div class="flex items-center gap-2 pt-2 border-t border-border/60">
+    
+            <a href="logos/logo-complet-pile-de-cartes-typographie-minty.svg" target="_blank" class="flex-1 text-center py-2 px-3 rounded-lg bg-primary/10 hover:bg-primary text-primary hover:text-black font-display font-semibold text-xs transition-all flex items-center justify-center gap-1">
+              <span class="material-symbols-outlined text-sm">open_in_new</span>
+              Ouvrir SVG
+            </a>
+        
+            <a href="screenshots/logo-complet-pile-de-cartes-typographie-minty_e0085224.jpg" target="_blank" class="py-2 px-3 rounded-lg bg-surface-card-hover hover:bg-neutral-800 text-neutral-300 hover:text-white font-display font-semibold text-xs transition-all flex items-center justify-center gap-1" title="Voir la capture complète">
+              <span class="material-symbols-outlined text-sm">image</span>
+            </a>
+        
+          </div>
+        </div>
+      </div>
+    
+      <div class="item-card cat-logos rounded-2xl bg-surface-card border border-border hover:border-primary/40 transition-all flex flex-col overflow-hidden group">
+        <div class="aspect-video bg-[#0B0F10] relative overflow-hidden flex items-center justify-center p-2 border-b border-border">
+    
+          <img src="logos/logo-complet-menthe-givree-noir-titane.svg" alt="Logo Complet — Menthe Givrée & Noir Titane" class="max-h-24 max-w-full object-contain filter drop-shadow">
+        
+          <div class="absolute top-3 left-3">
+            <span class="text-[10px] font-display font-bold px-2 py-0.5 rounded-full bg-purple-500/20 text-purple-300 border border-purple-500/30 uppercase tracking-wider">Logo SVG</span>
+          </div>
+        </div>
+
+        <div class="p-4 flex flex-col flex-1 justify-between gap-3">
+          <div>
+            <h3 class="font-display font-semibold text-sm text-white group-hover:text-primary transition-colors line-clamp-1">Logo Complet — Menthe Givrée & Noir Titane</h3>
+            <p class="text-xs text-neutral-400 mt-1 line-clamp-1">Identifiant : <code class="text-neutral-500">d321802e7859...</code></p>
+          </div>
+
+          <div class="flex items-center gap-2 pt-2 border-t border-border/60">
+    
+            <a href="logos/logo-complet-menthe-givree-noir-titane.svg" target="_blank" class="flex-1 text-center py-2 px-3 rounded-lg bg-primary/10 hover:bg-primary text-primary hover:text-black font-display font-semibold text-xs transition-all flex items-center justify-center gap-1">
+              <span class="material-symbols-outlined text-sm">open_in_new</span>
+              Ouvrir SVG
+            </a>
+        
+            <a href="screenshots/logo-complet-menthe-givree-noir-titane_d321802e.jpg" target="_blank" class="py-2 px-3 rounded-lg bg-surface-card-hover hover:bg-neutral-800 text-neutral-300 hover:text-white font-display font-semibold text-xs transition-all flex items-center justify-center gap-1" title="Voir la capture complète">
+              <span class="material-symbols-outlined text-sm">image</span>
+            </a>
+        
+          </div>
+        </div>
+      </div>
+    
+      <div class="item-card cat-logos rounded-2xl bg-surface-card border border-border hover:border-primary/40 transition-all flex flex-col overflow-hidden group">
+        <div class="aspect-video bg-[#0B0F10] relative overflow-hidden flex items-center justify-center p-2 border-b border-border">
+    
+          <img src="logos/logo-3-cartes-cyan-electrique-noir-spatial.svg" alt="Logo 3 Cartes — Cyan Électrique & Noir Spatial" class="max-h-24 max-w-full object-contain filter drop-shadow">
+        
+          <div class="absolute top-3 left-3">
+            <span class="text-[10px] font-display font-bold px-2 py-0.5 rounded-full bg-purple-500/20 text-purple-300 border border-purple-500/30 uppercase tracking-wider">Logo SVG</span>
+          </div>
+        </div>
+
+        <div class="p-4 flex flex-col flex-1 justify-between gap-3">
+          <div>
+            <h3 class="font-display font-semibold text-sm text-white group-hover:text-primary transition-colors line-clamp-1">Logo 3 Cartes — Cyan Électrique & Noir Spatial</h3>
+            <p class="text-xs text-neutral-400 mt-1 line-clamp-1">Identifiant : <code class="text-neutral-500">1bd32e0f39c7...</code></p>
+          </div>
+
+          <div class="flex items-center gap-2 pt-2 border-t border-border/60">
+    
+            <a href="logos/logo-3-cartes-cyan-electrique-noir-spatial.svg" target="_blank" class="flex-1 text-center py-2 px-3 rounded-lg bg-primary/10 hover:bg-primary text-primary hover:text-black font-display font-semibold text-xs transition-all flex items-center justify-center gap-1">
+              <span class="material-symbols-outlined text-sm">open_in_new</span>
+              Ouvrir SVG
+            </a>
+        
+            <a href="screenshots/logo-3-cartes-cyan-electrique-noir-spatial_1bd32e0f.jpg" target="_blank" class="py-2 px-3 rounded-lg bg-surface-card-hover hover:bg-neutral-800 text-neutral-300 hover:text-white font-display font-semibold text-xs transition-all flex items-center justify-center gap-1" title="Voir la capture complète">
+              <span class="material-symbols-outlined text-sm">image</span>
+            </a>
+        
+          </div>
+        </div>
+      </div>
+    
+      <div class="item-card cat-logos rounded-2xl bg-surface-card border border-border hover:border-primary/40 transition-all flex flex-col overflow-hidden group">
+        <div class="aspect-video bg-[#0B0F10] relative overflow-hidden flex items-center justify-center p-2 border-b border-border">
+    
+          <img src="logos/logo-minty-cartes-monochrome-rouge-imperial.svg" alt="Logo Minty — Cartes Monochrome & Rouge Impérial" class="max-h-24 max-w-full object-contain filter drop-shadow">
+        
+          <div class="absolute top-3 left-3">
+            <span class="text-[10px] font-display font-bold px-2 py-0.5 rounded-full bg-purple-500/20 text-purple-300 border border-purple-500/30 uppercase tracking-wider">Logo SVG</span>
+          </div>
+        </div>
+
+        <div class="p-4 flex flex-col flex-1 justify-between gap-3">
+          <div>
+            <h3 class="font-display font-semibold text-sm text-white group-hover:text-primary transition-colors line-clamp-1">Logo Minty — Cartes Monochrome & Rouge Impérial</h3>
+            <p class="text-xs text-neutral-400 mt-1 line-clamp-1">Identifiant : <code class="text-neutral-500">b86ab8f8fb1a...</code></p>
+          </div>
+
+          <div class="flex items-center gap-2 pt-2 border-t border-border/60">
+    
+            <a href="logos/logo-minty-cartes-monochrome-rouge-imperial.svg" target="_blank" class="flex-1 text-center py-2 px-3 rounded-lg bg-primary/10 hover:bg-primary text-primary hover:text-black font-display font-semibold text-xs transition-all flex items-center justify-center gap-1">
+              <span class="material-symbols-outlined text-sm">open_in_new</span>
+              Ouvrir SVG
+            </a>
+        
+            <a href="screenshots/logo-minty-cartes-monochrome-rouge-imperial_b86ab8f8.jpg" target="_blank" class="py-2 px-3 rounded-lg bg-surface-card-hover hover:bg-neutral-800 text-neutral-300 hover:text-white font-display font-semibold text-xs transition-all flex items-center justify-center gap-1" title="Voir la capture complète">
+              <span class="material-symbols-outlined text-sm">image</span>
+            </a>
+        
+          </div>
+        </div>
+      </div>
+    
+      <div class="item-card cat-logos rounded-2xl bg-surface-card border border-border hover:border-primary/40 transition-all flex flex-col overflow-hidden group">
+        <div class="aspect-video bg-[#0B0F10] relative overflow-hidden flex items-center justify-center p-2 border-b border-border">
+    
+          <img src="logos/logo-3-cartes-bleu-canard-teal-abysse.svg" alt="Logo 3 Cartes — Bleu Canard & Teal Abysse" class="max-h-24 max-w-full object-contain filter drop-shadow">
+        
+          <div class="absolute top-3 left-3">
+            <span class="text-[10px] font-display font-bold px-2 py-0.5 rounded-full bg-purple-500/20 text-purple-300 border border-purple-500/30 uppercase tracking-wider">Logo SVG</span>
+          </div>
+        </div>
+
+        <div class="p-4 flex flex-col flex-1 justify-between gap-3">
+          <div>
+            <h3 class="font-display font-semibold text-sm text-white group-hover:text-primary transition-colors line-clamp-1">Logo 3 Cartes — Bleu Canard & Teal Abysse</h3>
+            <p class="text-xs text-neutral-400 mt-1 line-clamp-1">Identifiant : <code class="text-neutral-500">35a6b923f10e...</code></p>
+          </div>
+
+          <div class="flex items-center gap-2 pt-2 border-t border-border/60">
+    
+            <a href="logos/logo-3-cartes-bleu-canard-teal-abysse.svg" target="_blank" class="flex-1 text-center py-2 px-3 rounded-lg bg-primary/10 hover:bg-primary text-primary hover:text-black font-display font-semibold text-xs transition-all flex items-center justify-center gap-1">
+              <span class="material-symbols-outlined text-sm">open_in_new</span>
+              Ouvrir SVG
+            </a>
+        
+            <a href="screenshots/logo-3-cartes-bleu-canard-teal-abysse_35a6b923.jpg" target="_blank" class="py-2 px-3 rounded-lg bg-surface-card-hover hover:bg-neutral-800 text-neutral-300 hover:text-white font-display font-semibold text-xs transition-all flex items-center justify-center gap-1" title="Voir la capture complète">
+              <span class="material-symbols-outlined text-sm">image</span>
+            </a>
+        
+          </div>
+        </div>
+      </div>
+    
+      <div class="item-card cat-logos rounded-2xl bg-surface-card border border-border hover:border-primary/40 transition-all flex flex-col overflow-hidden group">
+        <div class="aspect-video bg-[#0B0F10] relative overflow-hidden flex items-center justify-center p-2 border-b border-border">
+    
+          <img src="logos/logo-minty-minimaliste.svg" alt="Logo Minty Minimaliste" class="max-h-24 max-w-full object-contain filter drop-shadow">
+        
+          <div class="absolute top-3 left-3">
+            <span class="text-[10px] font-display font-bold px-2 py-0.5 rounded-full bg-purple-500/20 text-purple-300 border border-purple-500/30 uppercase tracking-wider">Logo SVG</span>
+          </div>
+        </div>
+
+        <div class="p-4 flex flex-col flex-1 justify-between gap-3">
+          <div>
+            <h3 class="font-display font-semibold text-sm text-white group-hover:text-primary transition-colors line-clamp-1">Logo Minty Minimaliste</h3>
+            <p class="text-xs text-neutral-400 mt-1 line-clamp-1">Identifiant : <code class="text-neutral-500">e620fcd44f94...</code></p>
+          </div>
+
+          <div class="flex items-center gap-2 pt-2 border-t border-border/60">
+    
+            <a href="logos/logo-minty-minimaliste.svg" target="_blank" class="flex-1 text-center py-2 px-3 rounded-lg bg-primary/10 hover:bg-primary text-primary hover:text-black font-display font-semibold text-xs transition-all flex items-center justify-center gap-1">
+              <span class="material-symbols-outlined text-sm">open_in_new</span>
+              Ouvrir SVG
+            </a>
+        
+            <a href="screenshots/logo-minty-minimaliste_e620fcd4.jpg" target="_blank" class="py-2 px-3 rounded-lg bg-surface-card-hover hover:bg-neutral-800 text-neutral-300 hover:text-white font-display font-semibold text-xs transition-all flex items-center justify-center gap-1" title="Voir la capture complète">
+              <span class="material-symbols-outlined text-sm">image</span>
+            </a>
+        
+          </div>
+        </div>
+      </div>
+    
+      <div class="item-card cat-logos rounded-2xl bg-surface-card border border-border hover:border-primary/40 transition-all flex flex-col overflow-hidden group">
+        <div class="aspect-video bg-[#0B0F10] relative overflow-hidden flex items-center justify-center p-2 border-b border-border">
+    
+          <img src="logos/logo-3-cartes-rose-framboise-carbone.svg" alt="Logo 3 Cartes — Rose Framboise & Carbone" class="max-h-24 max-w-full object-contain filter drop-shadow">
+        
+          <div class="absolute top-3 left-3">
+            <span class="text-[10px] font-display font-bold px-2 py-0.5 rounded-full bg-purple-500/20 text-purple-300 border border-purple-500/30 uppercase tracking-wider">Logo SVG</span>
+          </div>
+        </div>
+
+        <div class="p-4 flex flex-col flex-1 justify-between gap-3">
+          <div>
+            <h3 class="font-display font-semibold text-sm text-white group-hover:text-primary transition-colors line-clamp-1">Logo 3 Cartes — Rose Framboise & Carbone</h3>
+            <p class="text-xs text-neutral-400 mt-1 line-clamp-1">Identifiant : <code class="text-neutral-500">57c21face622...</code></p>
+          </div>
+
+          <div class="flex items-center gap-2 pt-2 border-t border-border/60">
+    
+            <a href="logos/logo-3-cartes-rose-framboise-carbone.svg" target="_blank" class="flex-1 text-center py-2 px-3 rounded-lg bg-primary/10 hover:bg-primary text-primary hover:text-black font-display font-semibold text-xs transition-all flex items-center justify-center gap-1">
+              <span class="material-symbols-outlined text-sm">open_in_new</span>
+              Ouvrir SVG
+            </a>
+        
+            <a href="screenshots/logo-3-cartes-rose-framboise-carbone_57c21fac.jpg" target="_blank" class="py-2 px-3 rounded-lg bg-surface-card-hover hover:bg-neutral-800 text-neutral-300 hover:text-white font-display font-semibold text-xs transition-all flex items-center justify-center gap-1" title="Voir la capture complète">
+              <span class="material-symbols-outlined text-sm">image</span>
+            </a>
+        
+          </div>
+        </div>
+      </div>
+    
+      <div class="item-card cat-logos rounded-2xl bg-surface-card border border-border hover:border-primary/40 transition-all flex flex-col overflow-hidden group">
+        <div class="aspect-video bg-[#0B0F10] relative overflow-hidden flex items-center justify-center p-2 border-b border-border">
+    
+          <img src="logos/logo-3-cartes-safran-basalte-dune.svg" alt="Logo 3 Cartes — Safran & Basalte Dune" class="max-h-24 max-w-full object-contain filter drop-shadow">
+        
+          <div class="absolute top-3 left-3">
+            <span class="text-[10px] font-display font-bold px-2 py-0.5 rounded-full bg-purple-500/20 text-purple-300 border border-purple-500/30 uppercase tracking-wider">Logo SVG</span>
+          </div>
+        </div>
+
+        <div class="p-4 flex flex-col flex-1 justify-between gap-3">
+          <div>
+            <h3 class="font-display font-semibold text-sm text-white group-hover:text-primary transition-colors line-clamp-1">Logo 3 Cartes — Safran & Basalte Dune</h3>
+            <p class="text-xs text-neutral-400 mt-1 line-clamp-1">Identifiant : <code class="text-neutral-500">c9f76d5de9de...</code></p>
+          </div>
+
+          <div class="flex items-center gap-2 pt-2 border-t border-border/60">
+    
+            <a href="logos/logo-3-cartes-safran-basalte-dune.svg" target="_blank" class="flex-1 text-center py-2 px-3 rounded-lg bg-primary/10 hover:bg-primary text-primary hover:text-black font-display font-semibold text-xs transition-all flex items-center justify-center gap-1">
+              <span class="material-symbols-outlined text-sm">open_in_new</span>
+              Ouvrir SVG
+            </a>
+        
+            <a href="screenshots/logo-3-cartes-safran-basalte-dune_c9f76d5d.jpg" target="_blank" class="py-2 px-3 rounded-lg bg-surface-card-hover hover:bg-neutral-800 text-neutral-300 hover:text-white font-display font-semibold text-xs transition-all flex items-center justify-center gap-1" title="Voir la capture complète">
+              <span class="material-symbols-outlined text-sm">image</span>
+            </a>
+        
+          </div>
+        </div>
+      </div>
+    
+      <div class="item-card cat-logos rounded-2xl bg-surface-card border border-border hover:border-primary/40 transition-all flex flex-col overflow-hidden group">
+        <div class="aspect-video bg-[#0B0F10] relative overflow-hidden flex items-center justify-center p-2 border-b border-border">
+    
+          <img src="logos/logo-minty-cartes-violet-kyber.svg" alt="Logo Minty — Cartes Violet Kyber" class="max-h-24 max-w-full object-contain filter drop-shadow">
+        
+          <div class="absolute top-3 left-3">
+            <span class="text-[10px] font-display font-bold px-2 py-0.5 rounded-full bg-purple-500/20 text-purple-300 border border-purple-500/30 uppercase tracking-wider">Logo SVG</span>
+          </div>
+        </div>
+
+        <div class="p-4 flex flex-col flex-1 justify-between gap-3">
+          <div>
+            <h3 class="font-display font-semibold text-sm text-white group-hover:text-primary transition-colors line-clamp-1">Logo Minty — Cartes Violet Kyber</h3>
+            <p class="text-xs text-neutral-400 mt-1 line-clamp-1">Identifiant : <code class="text-neutral-500">f36881666c01...</code></p>
+          </div>
+
+          <div class="flex items-center gap-2 pt-2 border-t border-border/60">
+    
+            <a href="logos/logo-minty-cartes-violet-kyber.svg" target="_blank" class="flex-1 text-center py-2 px-3 rounded-lg bg-primary/10 hover:bg-primary text-primary hover:text-black font-display font-semibold text-xs transition-all flex items-center justify-center gap-1">
+              <span class="material-symbols-outlined text-sm">open_in_new</span>
+              Ouvrir SVG
+            </a>
+        
+            <a href="screenshots/logo-minty-cartes-violet-kyber_f3688166.jpg" target="_blank" class="py-2 px-3 rounded-lg bg-surface-card-hover hover:bg-neutral-800 text-neutral-300 hover:text-white font-display font-semibold text-xs transition-all flex items-center justify-center gap-1" title="Voir la capture complète">
+              <span class="material-symbols-outlined text-sm">image</span>
+            </a>
+        
+          </div>
+        </div>
+      </div>
+    
+      <div class="item-card cat-logos rounded-2xl bg-surface-card border border-border hover:border-primary/40 transition-all flex flex-col overflow-hidden group">
+        <div class="aspect-video bg-[#0B0F10] relative overflow-hidden flex items-center justify-center p-2 border-b border-border">
+    
+          <img src="logos/logo-minty-ambre-dore.svg" alt="Logo Minty Ambre Doré" class="max-h-24 max-w-full object-contain filter drop-shadow">
+        
+          <div class="absolute top-3 left-3">
+            <span class="text-[10px] font-display font-bold px-2 py-0.5 rounded-full bg-purple-500/20 text-purple-300 border border-purple-500/30 uppercase tracking-wider">Logo SVG</span>
+          </div>
+        </div>
+
+        <div class="p-4 flex flex-col flex-1 justify-between gap-3">
+          <div>
+            <h3 class="font-display font-semibold text-sm text-white group-hover:text-primary transition-colors line-clamp-1">Logo Minty Ambre Doré</h3>
+            <p class="text-xs text-neutral-400 mt-1 line-clamp-1">Identifiant : <code class="text-neutral-500">9e4a25536012...</code></p>
+          </div>
+
+          <div class="flex items-center gap-2 pt-2 border-t border-border/60">
+    
+            <a href="logos/logo-minty-ambre-dore.svg" target="_blank" class="flex-1 text-center py-2 px-3 rounded-lg bg-primary/10 hover:bg-primary text-primary hover:text-black font-display font-semibold text-xs transition-all flex items-center justify-center gap-1">
+              <span class="material-symbols-outlined text-sm">open_in_new</span>
+              Ouvrir SVG
+            </a>
+        
+            <a href="screenshots/logo-minty-ambre-dore_9e4a2553.jpg" target="_blank" class="py-2 px-3 rounded-lg bg-surface-card-hover hover:bg-neutral-800 text-neutral-300 hover:text-white font-display font-semibold text-xs transition-all flex items-center justify-center gap-1" title="Voir la capture complète">
+              <span class="material-symbols-outlined text-sm">image</span>
+            </a>
+        
+          </div>
+        </div>
+      </div>
+    
+      <div class="item-card cat-logos rounded-2xl bg-surface-card border border-border hover:border-primary/40 transition-all flex flex-col overflow-hidden group">
+        <div class="aspect-video bg-[#0B0F10] relative overflow-hidden flex items-center justify-center p-2 border-b border-border">
+    
+          <img src="logos/logo-3-cartes-or-titane-pristine-10.svg" alt="Logo 3 Cartes — Or Titane & Pristine 10" class="max-h-24 max-w-full object-contain filter drop-shadow">
+        
+          <div class="absolute top-3 left-3">
+            <span class="text-[10px] font-display font-bold px-2 py-0.5 rounded-full bg-purple-500/20 text-purple-300 border border-purple-500/30 uppercase tracking-wider">Logo SVG</span>
+          </div>
+        </div>
+
+        <div class="p-4 flex flex-col flex-1 justify-between gap-3">
+          <div>
+            <h3 class="font-display font-semibold text-sm text-white group-hover:text-primary transition-colors line-clamp-1">Logo 3 Cartes — Or Titane & Pristine 10</h3>
+            <p class="text-xs text-neutral-400 mt-1 line-clamp-1">Identifiant : <code class="text-neutral-500">df3f87d31f3a...</code></p>
+          </div>
+
+          <div class="flex items-center gap-2 pt-2 border-t border-border/60">
+    
+            <a href="logos/logo-3-cartes-or-titane-pristine-10.svg" target="_blank" class="flex-1 text-center py-2 px-3 rounded-lg bg-primary/10 hover:bg-primary text-primary hover:text-black font-display font-semibold text-xs transition-all flex items-center justify-center gap-1">
+              <span class="material-symbols-outlined text-sm">open_in_new</span>
+              Ouvrir SVG
+            </a>
+        
+            <a href="screenshots/logo-3-cartes-or-titane-pristine-10_df3f87d3.jpg" target="_blank" class="py-2 px-3 rounded-lg bg-surface-card-hover hover:bg-neutral-800 text-neutral-300 hover:text-white font-display font-semibold text-xs transition-all flex items-center justify-center gap-1" title="Voir la capture complète">
+              <span class="material-symbols-outlined text-sm">image</span>
+            </a>
+        
+          </div>
+        </div>
+      </div>
+    
+      <div class="item-card cat-logos rounded-2xl bg-surface-card border border-border hover:border-primary/40 transition-all flex flex-col overflow-hidden group">
+        <div class="aspect-video bg-[#0B0F10] relative overflow-hidden flex items-center justify-center p-2 border-b border-border">
+    
+          <img src="logos/logo-minty-monochrome-carmin.svg" alt="Logo Minty Monochrome Carmin" class="max-h-24 max-w-full object-contain filter drop-shadow">
+        
+          <div class="absolute top-3 left-3">
+            <span class="text-[10px] font-display font-bold px-2 py-0.5 rounded-full bg-purple-500/20 text-purple-300 border border-purple-500/30 uppercase tracking-wider">Logo SVG</span>
+          </div>
+        </div>
+
+        <div class="p-4 flex flex-col flex-1 justify-between gap-3">
+          <div>
+            <h3 class="font-display font-semibold text-sm text-white group-hover:text-primary transition-colors line-clamp-1">Logo Minty Monochrome Carmin</h3>
+            <p class="text-xs text-neutral-400 mt-1 line-clamp-1">Identifiant : <code class="text-neutral-500">1d9cfcdb730b...</code></p>
+          </div>
+
+          <div class="flex items-center gap-2 pt-2 border-t border-border/60">
+    
+            <a href="logos/logo-minty-monochrome-carmin.svg" target="_blank" class="flex-1 text-center py-2 px-3 rounded-lg bg-primary/10 hover:bg-primary text-primary hover:text-black font-display font-semibold text-xs transition-all flex items-center justify-center gap-1">
+              <span class="material-symbols-outlined text-sm">open_in_new</span>
+              Ouvrir SVG
+            </a>
+        
+            <a href="screenshots/logo-minty-monochrome-carmin_1d9cfcdb.jpg" target="_blank" class="py-2 px-3 rounded-lg bg-surface-card-hover hover:bg-neutral-800 text-neutral-300 hover:text-white font-display font-semibold text-xs transition-all flex items-center justify-center gap-1" title="Voir la capture complète">
+              <span class="material-symbols-outlined text-sm">image</span>
+            </a>
+        
+          </div>
+        </div>
+      </div>
+    
+      <div class="item-card cat-logos rounded-2xl bg-surface-card border border-border hover:border-primary/40 transition-all flex flex-col overflow-hidden group">
+        <div class="aspect-video bg-[#0B0F10] relative overflow-hidden flex items-center justify-center p-2 border-b border-border">
+    
+          <img src="logos/logo-complet-monochrome-editorial.svg" alt="Logo Complet — Monochrome Éditorial" class="max-h-24 max-w-full object-contain filter drop-shadow">
+        
+          <div class="absolute top-3 left-3">
+            <span class="text-[10px] font-display font-bold px-2 py-0.5 rounded-full bg-purple-500/20 text-purple-300 border border-purple-500/30 uppercase tracking-wider">Logo SVG</span>
+          </div>
+        </div>
+
+        <div class="p-4 flex flex-col flex-1 justify-between gap-3">
+          <div>
+            <h3 class="font-display font-semibold text-sm text-white group-hover:text-primary transition-colors line-clamp-1">Logo Complet — Monochrome Éditorial</h3>
+            <p class="text-xs text-neutral-400 mt-1 line-clamp-1">Identifiant : <code class="text-neutral-500">601ef83a3bab...</code></p>
+          </div>
+
+          <div class="flex items-center gap-2 pt-2 border-t border-border/60">
+    
+            <a href="logos/logo-complet-monochrome-editorial.svg" target="_blank" class="flex-1 text-center py-2 px-3 rounded-lg bg-primary/10 hover:bg-primary text-primary hover:text-black font-display font-semibold text-xs transition-all flex items-center justify-center gap-1">
+              <span class="material-symbols-outlined text-sm">open_in_new</span>
+              Ouvrir SVG
+            </a>
+        
+            <a href="screenshots/logo-complet-monochrome-editorial_601ef83a.jpg" target="_blank" class="py-2 px-3 rounded-lg bg-surface-card-hover hover:bg-neutral-800 text-neutral-300 hover:text-white font-display font-semibold text-xs transition-all flex items-center justify-center gap-1" title="Voir la capture complète">
+              <span class="material-symbols-outlined text-sm">image</span>
+            </a>
+        
+          </div>
+        </div>
+      </div>
+    
+      <div class="item-card cat-assets rounded-2xl bg-surface-card border border-border hover:border-primary/40 transition-all flex flex-col overflow-hidden group">
+        <div class="aspect-video bg-[#0B0F10] relative overflow-hidden flex items-center justify-center p-2 border-b border-border">
+    
+          <img src="screenshots/minty_dashboard_mockupjpg_13071856.jpg" alt="minty_dashboard_mockup.jpg" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300">
+        
+          <div class="absolute top-3 left-3">
+            <span class="text-[10px] font-display font-bold px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/30 uppercase tracking-wider">Asset / Image</span>
+          </div>
+        </div>
+
+        <div class="p-4 flex flex-col flex-1 justify-between gap-3">
+          <div>
+            <h3 class="font-display font-semibold text-sm text-white group-hover:text-primary transition-colors line-clamp-1">minty_dashboard_mockup.jpg</h3>
+            <p class="text-xs text-neutral-400 mt-1 line-clamp-1">Identifiant : <code class="text-neutral-500">130718563835...</code></p>
+          </div>
+
+          <div class="flex items-center gap-2 pt-2 border-t border-border/60">
+    
+            <a href="screenshots/minty_dashboard_mockupjpg_13071856.jpg" target="_blank" class="py-2 px-3 rounded-lg bg-surface-card-hover hover:bg-neutral-800 text-neutral-300 hover:text-white font-display font-semibold text-xs transition-all flex items-center justify-center gap-1" title="Voir la capture complète">
+              <span class="material-symbols-outlined text-sm">image</span>
+            </a>
+        
+          </div>
+        </div>
+      </div>
+    
+      <div class="item-card cat-assets rounded-2xl bg-surface-card border border-border hover:border-primary/40 transition-all flex flex-col overflow-hidden group">
+        <div class="aspect-video bg-[#0B0F10] relative overflow-hidden flex items-center justify-center p-2 border-b border-border">
+    
+          <img src="screenshots/logo_decoupepng_13071856.jpg" alt="logo_decoupe.png" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300">
+        
+          <div class="absolute top-3 left-3">
+            <span class="text-[10px] font-display font-bold px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/30 uppercase tracking-wider">Asset / Image</span>
+          </div>
+        </div>
+
+        <div class="p-4 flex flex-col flex-1 justify-between gap-3">
+          <div>
+            <h3 class="font-display font-semibold text-sm text-white group-hover:text-primary transition-colors line-clamp-1">logo_decoupe.png</h3>
+            <p class="text-xs text-neutral-400 mt-1 line-clamp-1">Identifiant : <code class="text-neutral-500">130718563835...</code></p>
+          </div>
+
+          <div class="flex items-center gap-2 pt-2 border-t border-border/60">
+    
+            <a href="screenshots/logo_decoupepng_13071856.jpg" target="_blank" class="py-2 px-3 rounded-lg bg-surface-card-hover hover:bg-neutral-800 text-neutral-300 hover:text-white font-display font-semibold text-xs transition-all flex items-center justify-center gap-1" title="Voir la capture complète">
+              <span class="material-symbols-outlined text-sm">image</span>
+            </a>
+        
+          </div>
+        </div>
+      </div>
+    
+      <div class="item-card cat-assets rounded-2xl bg-surface-card border border-border hover:border-primary/40 transition-all flex flex-col overflow-hidden group">
+        <div class="aspect-video bg-[#0B0F10] relative overflow-hidden flex items-center justify-center p-2 border-b border-border">
+    
+          <img src="screenshots/professional-clean-avatar-portrait-of-a-young-french-man-collector-in-casual-modern-attire-friendly-natural-smile-soft-clean-daylight-background-high-quality-saas-profile-photo_a0d42122.jpg" alt="Professional clean avatar portrait of a young French man collector in casual modern attire, friendly natural smile, soft clean daylight background, high quality SaaS profile photo" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300">
+        
+          <div class="absolute top-3 left-3">
+            <span class="text-[10px] font-display font-bold px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/30 uppercase tracking-wider">Asset / Image</span>
+          </div>
+        </div>
+
+        <div class="p-4 flex flex-col flex-1 justify-between gap-3">
+          <div>
+            <h3 class="font-display font-semibold text-sm text-white group-hover:text-primary transition-colors line-clamp-1">Professional clean avatar portrait of a young French man collector in casual modern attire, friendly natural smile, soft clean daylight background, high quality SaaS profile photo</h3>
+            <p class="text-xs text-neutral-400 mt-1 line-clamp-1">Identifiant : <code class="text-neutral-500">a0d421220a50...</code></p>
+          </div>
+
+          <div class="flex items-center gap-2 pt-2 border-t border-border/60">
+    
+            <a href="screenshots/professional-clean-avatar-portrait-of-a-young-french-man-collector-in-casual-modern-attire-friendly-natural-smile-soft-clean-daylight-background-high-quality-saas-profile-photo_a0d42122.jpg" target="_blank" class="py-2 px-3 rounded-lg bg-surface-card-hover hover:bg-neutral-800 text-neutral-300 hover:text-white font-display font-semibold text-xs transition-all flex items-center justify-center gap-1" title="Voir la capture complète">
+              <span class="material-symbols-outlined text-sm">image</span>
+            </a>
+        
+          </div>
+        </div>
+      </div>
+    
+      <div class="item-card cat-assets rounded-2xl bg-surface-card border border-border hover:border-primary/40 transition-all flex flex-col overflow-hidden group">
+        <div class="aspect-video bg-[#0B0F10] relative overflow-hidden flex items-center justify-center p-2 border-b border-border">
+    
+          <img src="screenshots/modern-card-collection-logopng_40932041.jpg" alt="Modern Card Collection Logo.png" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300">
+        
+          <div class="absolute top-3 left-3">
+            <span class="text-[10px] font-display font-bold px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/30 uppercase tracking-wider">Asset / Image</span>
+          </div>
+        </div>
+
+        <div class="p-4 flex flex-col flex-1 justify-between gap-3">
+          <div>
+            <h3 class="font-display font-semibold text-sm text-white group-hover:text-primary transition-colors line-clamp-1">Modern Card Collection Logo.png</h3>
+            <p class="text-xs text-neutral-400 mt-1 line-clamp-1">Identifiant : <code class="text-neutral-500">409320412141...</code></p>
+          </div>
+
+          <div class="flex items-center gap-2 pt-2 border-t border-border/60">
+    
+            <a href="screenshots/modern-card-collection-logopng_40932041.jpg" target="_blank" class="py-2 px-3 rounded-lg bg-surface-card-hover hover:bg-neutral-800 text-neutral-300 hover:text-white font-display font-semibold text-xs transition-all flex items-center justify-center gap-1" title="Voir la capture complète">
+              <span class="material-symbols-outlined text-sm">image</span>
+            </a>
+        
+          </div>
+        </div>
+      </div>
+    
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-border py-6 mt-12 bg-[#090D0E]">
+    <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between text-xs text-neutral-500 gap-4">
+      <div>Minty Tracker &copy; 2026 — Synchronisé via l'API Google Stitch</div>
+      <div class="flex items-center gap-4">
+        <span>Clé API Stitch active</span>
+        <span>•</span>
+        <a href="DESIGN_SYSTEM.md" class="hover:text-primary transition-colors">Design System</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function filterCategory(cat) {
+      document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.classList.remove('bg-primary', 'text-black');
+        btn.classList.add('bg-surface-card', 'text-neutral-300');
+      });
+      const activeBtn = document.getElementById('btn-' + cat);
+      if (activeBtn) {
+        activeBtn.classList.remove('bg-surface-card', 'text-neutral-300');
+        activeBtn.classList.add('bg-primary', 'text-black');
+      }
+
+      const cards = document.querySelectorAll('.item-card');
+      cards.forEach(card => {
+        if (cat === 'all') {
+          card.style.display = 'flex';
+        } else {
+          if (card.classList.contains('cat-' + cat)) {
+            card.style.display = 'flex';
+          } else {
+            card.style.display = 'none';
+          }
+        }
+      });
+    }
+  </script>
+</body>
+</html>

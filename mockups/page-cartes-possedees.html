@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="fr" class="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Minty — Mes Cartes (Tailwind CSS + Shadcn UI)</title>
+  <link rel="icon" type="image/png" href="assets/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            border: "hsl(var(--border))",
+            input: "hsl(var(--input))",
+            ring: "hsl(var(--ring))",
+            background: "hsl(var(--background))",
+            foreground: "hsl(var(--foreground))",
+            primary: {
+              DEFAULT: "hsl(var(--primary))",
+              foreground: "hsl(var(--primary-foreground))",
+            },
+            secondary: {
+              DEFAULT: "hsl(var(--secondary))",
+              foreground: "hsl(var(--secondary-foreground))",
+            },
+            destructive: {
+              DEFAULT: "hsl(var(--destructive))",
+              foreground: "hsl(var(--destructive-foreground))",
+            },
+            muted: {
+              DEFAULT: "hsl(var(--muted))",
+              foreground: "hsl(var(--muted-foreground))",
+            },
+            accent: {
+              DEFAULT: "hsl(var(--accent))",
+              foreground: "hsl(var(--accent-foreground))",
+            },
+            popover: {
+              DEFAULT: "hsl(var(--popover))",
+              foreground: "hsl(var(--popover-foreground))",
+            },
+            card: {
+              DEFAULT: "hsl(var(--card))",
+              foreground: "hsl(var(--card-foreground))",
+            },
+            mint: {
+              50: '#f0fdf9',
+              100: '#ccfbf1',
+              200: '#99f6e4',
+              300: '#5eead4',
+              400: '#2dd4bf',
+              500: '#14b8a6',
+              600: '#0d9488',
+              700: '#0f766e',
+              800: '#115e59',
+              900: '#134e4a',
+            }
+          },
+          borderRadius: {
+            lg: "var(--radius)",
+            md: "calc(var(--radius) - 2px)",
+            sm: "calc(var(--radius) - 4px)",
+          },
+          fontFamily: {
+            sans: ["Plus Jakarta Sans", "Inter", "sans-serif"],
+            mono: ["JetBrains Mono", "monospace"],
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    :root {
+      --background: 0 0% 100%;
+      --foreground: 240 10% 3.9%;
+      --card: 0 0% 100%;
+      --card-foreground: 240 10% 3.9%;
+      --popover: 0 0% 100%;
+      --popover-foreground: 240 10% 3.9%;
+      --primary: 168 80% 32%; /* #0D9488 Vert Menthe Signature */
+      --primary-foreground: 0 0% 100%;
+      --secondary: 240 4.8% 95.9%;
+      --secondary-foreground: 240 5.9% 10%;
+      --muted: 240 4.8% 95.9%;
+      --muted-foreground: 240 3.8% 46.1%;
+      --accent: 168 60% 96%;
+      --accent-foreground: 168 80% 25%;
+      --destructive: 0 84.2% 60.2%;
+      --destructive-foreground: 0 0% 98%;
+      --border: 240 5.9% 90%;
+      --input: 240 5.9% 90%;
+      --ring: 168 80% 32%;
+      --radius: 0.625rem;
+    }
+    .dark {
+      --background: 240 10% 3.9%;
+      --foreground: 0 0% 98%;
+      --card: 240 10% 5.5%;
+      --card-foreground: 0 0% 98%;
+      --popover: 240 10% 5.5%;
+      --popover-foreground: 0 0% 98%;
+      --primary: 168 76% 40%;
+      --primary-foreground: 240 10% 3.9%;
+      --secondary: 240 3.7% 15.9%;
+      --secondary-foreground: 0 0% 98%;
+      --muted: 240 3.7% 15.9%;
+      --muted-foreground: 240 5% 64.9%;
+      --accent: 168 40% 12%;
+      --accent-foreground: 168 70% 65%;
+      --destructive: 0 62.8% 30.6%;
+      --destructive-foreground: 0 0% 98%;
+      --border: 240 3.7% 15.9%;
+      --input: 240 3.7% 15.9%;
+      --ring: 168 76% 40%;
+    }
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+    .card-missing {
+      opacity: 0.6;
+      filter: grayscale(0.5);
+    }
+    .card-foil-border {
+      border-color: #5eead4 !important;
+      box-shadow: 0 0 10px rgba(94, 234, 212, 0.25);
+    }
+  </style>
+  <script>
+    if (localStorage.getItem('minty-theme') === 'dark') {
+      document.documentElement.classList.add('dark');
+    }
+  </script>
+</head>
+<body class="bg-background text-foreground antialiased min-h-screen flex">
+
+  <!-- Sidebar (Shadcn Sidebar Style) -->
+  <aside class="fixed inset-y-0 left-0 w-64 border-r border-border bg-card flex flex-col justify-between z-40">
+    <div class="flex flex-col">
+      <!-- App Brand Header -->
+      <div class="h-16 flex items-center justify-between px-5 border-b border-border">
+        <a href="page-accueil.html" class="flex items-center gap-3 group">
+          <div class="w-9 h-9 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center p-1.5 shadow-sm group-hover:scale-105 transition-transform">
+            <img src="assets/logo.png" alt="Minty Logo" class="w-full h-full object-contain">
+          </div>
+          <div class="flex flex-col">
+            <span class="text-base font-bold tracking-tight text-foreground leading-none">
+              Minty
+            </span>
+            <span class="text-[11px] text-muted-foreground mt-0.5">Card Tracker</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- Navigation Section -->
+      <div class="px-3 py-3 flex flex-col gap-1">
+        <div class="px-2 py-1.5 text-[11px] font-medium text-muted-foreground uppercase tracking-wider">
+          Menu Principal
+        </div>
+        <nav class="flex flex-col gap-1">
+          <a href="page-accueil.html" class="flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium text-muted-foreground hover:bg-accent hover:text-accent-foreground transition-colors">
+            <i data-lucide="layout-dashboard" class="w-4 h-4"></i>
+            <span>Tableau de bord</span>
+          </a>
+          <!-- Active Tab -->
+          <a href="page-cartes-possedees.html" class="flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium bg-primary/10 text-primary transition-colors">
+            <i data-lucide="layers" class="w-4 h-4"></i>
+            <span>Mes Cartes</span>
+            <span class="ml-auto inline-flex items-center rounded-md border border-primary/20 bg-primary/10 px-1.5 py-0.5 font-mono text-[11px] font-bold text-primary" id="badge-total-owned">184</span>
+          </a>
+        </nav>
+      </div>
+    </div>
+
+    <!-- Sidebar Bottom: Progress & User info -->
+    <div class="p-3 border-t border-border flex flex-col gap-3">
+      <!-- Mini Progress Card (shadcn Card style) -->
+      <div class="rounded-lg border border-border bg-card p-3 shadow-xs flex flex-col gap-2">
+        <div class="flex items-center justify-between text-xs">
+          <span class="font-medium text-muted-foreground">Complétion du set</span>
+          <span class="font-mono font-bold text-primary">73.0%</span>
+        </div>
+        <div class="relative h-2 w-full overflow-hidden rounded-full bg-secondary">
+          <div class="h-full bg-primary transition-all duration-500 rounded-full" style="width: 73%"></div>
+        </div>
+        <div class="flex items-center justify-between text-[11px] font-mono text-muted-foreground">
+          <span>184 acquises</span>
+          <span>68 manquantes</span>
+        </div>
+      </div>
+
+      <!-- User footer row -->
+      <div class="pt-1">
+        <a href="page-profil.html" class="flex items-center gap-2.5 p-1.5 rounded-md hover:bg-accent transition-colors w-full min-w-0">
+          <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBe00MS3J8T6twtVGhteU5MekjS2UR-Zsb3Ozau3S1ZG9mj1J93qj8QotTGHf4Z4t19To34GkC9dIG-oczx1V4bMtRbSelQ9yg5H1mZdRofHjMOATGKAfNChN3bHWw7H1B2YB8t4ufpqkPtmJ9A-tZRLZrt-B5YG-p4XNgikMx9wCxrum4FZ84V8ih2kX9-cuzr_oR3kEIMIUgyB9AGZFE1HOMtg0FPTKdAm8LcLoQHTEIgKq3xsDTQYg" 
+               alt="Avatar" class="w-8 h-8 rounded-full object-cover border border-border">
+          <div class="flex flex-col truncate">
+            <span class="text-xs font-semibold text-foreground truncate">Alexandre V.</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Main Content Wrapper -->
+  <div class="pl-64 flex-1 flex flex-col min-w-0">
+
+    <!-- Top Navigation Header -->
+    <header class="sticky top-0 z-30 h-16 border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 px-8 flex items-center justify-between gap-4">
+      <!-- Search Input -->
+      <div class="flex items-center gap-3 flex-1 max-w-md">
+        <div class="relative w-full">
+          <i data-lucide="search" class="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground"></i>
+          <input type="text" id="input-search" placeholder="Filtrer nom ou numéro (ex: Luke, 005, Vador)..."
+                 class="flex h-9 w-full rounded-md border border-input bg-transparent pl-9 pr-14 py-1 text-xs shadow-xs transition-colors placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring">
+          <kbd class="pointer-events-none absolute right-2.5 top-1/2 -translate-y-1/2 inline-flex h-5 select-none items-center gap-1 rounded border border-border bg-muted px-1.5 font-mono text-[10px] font-medium text-muted-foreground">ESC</kbd>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <!-- Dark mode toggle button -->
+        <button onclick="toggleDarkMode()" class="h-9 w-9 rounded-md border border-input bg-background hover:bg-accent hover:text-accent-foreground inline-flex items-center justify-center text-muted-foreground transition-colors" title="Changer le mode (Clair / Sombre)">
+          <i data-lucide="moon" class="w-4 h-4 hidden dark:block text-primary"></i>
+          <i data-lucide="sun" class="w-4 h-4 block dark:hidden"></i>
+        </button>
+      </div>
+    </header>
+
+    <!-- Page Body Container -->
+    <main class="flex-1 px-8 py-8 max-w-7xl w-full mx-auto flex flex-col gap-6">
+
+      <!-- Page Heading -->
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div>
+          <h1 class="text-2xl sm:text-3xl font-bold tracking-tight text-foreground">
+            Mes Cartes
+          </h1>
+          <p class="text-xs text-muted-foreground mt-0.5 font-mono">
+            Star Wars: Unlimited • Étincelle de Rébellion (SOR)
+          </p>
+        </div>
+
+        <!-- Export & Action Buttons -->
+        <div class="flex items-center gap-2.5">
+          <button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-xs font-medium border border-input bg-background shadow-xs hover:bg-accent hover:text-accent-foreground h-9 px-3 transition-colors">
+            <i data-lucide="download" class="w-4 h-4"></i>
+            <span>Exporter</span>
+          </button>
+          <button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-xs font-semibold bg-primary text-primary-foreground shadow-xs hover:bg-primary/90 h-9 px-4 transition-colors">
+            <i data-lucide="plus" class="w-4 h-4"></i>
+            <span>Ajouter une carte</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Filter Controls & View Switcher (Shadcn Tabs & Selects) -->
+      <section class="flex flex-col gap-4">
+        
+        <!-- Filter Row 1 : Search, Selects, and View Mode -->
+        <div class="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-3">
+          
+          <div class="flex flex-wrap items-center gap-2.5 flex-1">
+            
+            <!-- Status Select (Shadcn Select look) -->
+            <div class="relative min-w-[150px]">
+              <select id="select-status" onchange="applyFilters()" 
+                      class="flex h-9 w-full items-center justify-between rounded-md border border-input bg-card px-3 py-1.5 text-xs font-medium text-foreground shadow-xs hover:bg-accent focus:outline-none focus:ring-1 focus:ring-ring cursor-pointer">
+                <option value="all">Statut : Toutes (252)</option>
+                <option value="owned" selected>✓ Possédées uniquement (184)</option>
+                <option value="missing">✗ Manquantes (68)</option>
+              </select>
+            </div>
+
+            <!-- Rarity Select -->
+            <div class="relative min-w-[150px]">
+              <select id="select-rarity" onchange="applyFilters()" 
+                      class="flex h-9 w-full items-center justify-between rounded-md border border-input bg-card px-3 py-1.5 text-xs font-medium text-foreground shadow-xs hover:bg-accent focus:outline-none focus:ring-1 focus:ring-ring cursor-pointer">
+                <option value="all">Rareté : Toutes</option>
+                <option value="Commune">Communes</option>
+                <option value="Peu Commune">Peu Communes</option>
+                <option value="Rare">Rares</option>
+                <option value="Légendaire">Légendaires</option>
+              </select>
+            </div>
+
+            <!-- Foil Checkbox (Shadcn Checkbox look) -->
+            <label class="flex items-center gap-2 h-9 px-3 rounded-md border border-input bg-card hover:bg-accent text-xs font-medium text-foreground cursor-pointer select-none transition-colors shadow-xs">
+              <input type="checkbox" id="check-foil-only" onchange="applyFilters()" class="w-4 h-4 rounded border-border accent-primary cursor-pointer">
+              <span class="flex items-center gap-1.5">
+                <i data-lucide="sparkles" class="w-3.5 h-3.5 text-primary"></i> Foil uniquement
+              </span>
+            </label>
+
+          </div>
+
+          <!-- View Mode Toggle: Shadcn Segmented Tabs -->
+          <div class="inline-flex h-9 items-center justify-center rounded-lg bg-muted p-1 text-muted-foreground self-start lg:self-auto shadow-xs">
+            <button onclick="setViewMode('grid')" id="btn-grid" 
+                    class="inline-flex items-center justify-center gap-1.5 whitespace-nowrap rounded-md px-3 py-1 text-xs font-medium ring-offset-background transition-all bg-card text-foreground shadow-xs">
+              <i data-lucide="layout-grid" class="w-3.5 h-3.5"></i>
+              <span>Grille</span>
+            </button>
+            <button onclick="setViewMode('list')" id="btn-list" 
+                    class="inline-flex items-center justify-center gap-1.5 whitespace-nowrap rounded-md px-3 py-1 text-xs font-medium ring-offset-background transition-all hover:text-foreground">
+              <i data-lucide="list" class="w-3.5 h-3.5"></i>
+              <span>Tableau</span>
+            </button>
+          </div>
+
+        </div>
+
+        <!-- Filter Row 2 : Aspect Filter Chips (Shadcn Toggle Group) -->
+        <div class="flex items-center gap-1.5 overflow-x-auto pb-1 text-xs scrollbar-none">
+          <span class="text-xs text-muted-foreground font-medium mr-1.5 shrink-0">Aspects :</span>
+          <button onclick="filterAspect('all', this)" class="aspect-chip inline-flex items-center gap-1.5 rounded-full px-3 py-1 font-medium text-xs bg-primary text-primary-foreground shadow-xs transition-colors shrink-0">
+            Tous
+          </button>
+          <button onclick="filterAspect('vigilance', this)" class="aspect-chip inline-flex items-center gap-1.5 rounded-full px-3 py-1 font-medium text-xs border border-border bg-card text-foreground hover:bg-accent transition-colors shrink-0">
+            <span class="w-2 h-2 rounded-full bg-blue-500"></span> Vigilance
+          </button>
+          <button onclick="filterAspect('commandement', this)" class="aspect-chip inline-flex items-center gap-1.5 rounded-full px-3 py-1 font-medium text-xs border border-border bg-card text-foreground hover:bg-accent transition-colors shrink-0">
+            <span class="w-2 h-2 rounded-full bg-emerald-500"></span> Commandement
+          </button>
+          <button onclick="filterAspect('agressivité', this)" class="aspect-chip inline-flex items-center gap-1.5 rounded-full px-3 py-1 font-medium text-xs border border-border bg-card text-foreground hover:bg-accent transition-colors shrink-0">
+            <span class="w-2 h-2 rounded-full bg-red-500"></span> Agressivité
+          </button>
+          <button onclick="filterAspect('ruse', this)" class="aspect-chip inline-flex items-center gap-1.5 rounded-full px-3 py-1 font-medium text-xs border border-border bg-card text-foreground hover:bg-accent transition-colors shrink-0">
+            <span class="w-2 h-2 rounded-full bg-amber-500"></span> Ruse
+          </button>
+          <button onclick="filterAspect('neutre', this)" class="aspect-chip inline-flex items-center gap-1.5 rounded-full px-3 py-1 font-medium text-xs border border-border bg-card text-foreground hover:bg-accent transition-colors shrink-0">
+            <span class="w-2 h-2 rounded-full bg-slate-400"></span> Neutre
+          </button>
+        </div>
+
+      </section>
+
+      <!-- View Container 1: Grid of Cards (Default) -->
+      <section id="view-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        
+        <!-- CARD 001 : Luke Skywalker (Légendaire / Possédée / Foil) -->
+        <div class="card-item rounded-xl border border-border bg-card hover:border-primary/50 hover:shadow-md transition-all flex flex-col justify-between overflow-hidden group"
+             data-name="Luke Skywalker" data-number="001" data-rarity="Légendaire" data-aspect="vigilance" data-owned="true" data-foil="true">
+          
+          <div class="p-4 flex flex-col gap-3">
+            <!-- Header : Number, Rarity, Foil Badge -->
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-mono font-bold text-primary">#001/252</span>
+              <div class="flex items-center gap-1.5">
+                <span class="inline-flex items-center gap-1 rounded-full border border-primary/30 bg-primary/10 px-2 py-0.5 text-[10px] font-bold text-primary">
+                  <i data-lucide="sparkles" class="w-3 h-3"></i> FOIL
+                </span>
+                <span class="inline-flex items-center rounded-full border border-purple-500/20 bg-purple-500/10 px-2 py-0.5 text-[10px] font-semibold text-purple-700 dark:text-purple-400">
+                  Légendaire
+                </span>
+              </div>
+            </div>
+
+            <!-- Card Illustration / Placeholder -->
+            <div class="aspect-[4/3] rounded-lg bg-secondary/50 border border-border flex flex-col items-center justify-center p-3 text-center relative overflow-hidden group-hover:bg-secondary/70 transition-colors">
+              <div class="w-10 h-10 rounded-full bg-primary/10 text-primary flex items-center justify-center mb-2">
+                <i data-lucide="shield" class="w-5 h-5"></i>
+              </div>
+              <h3 class="text-sm font-bold text-foreground leading-tight">Luke Skywalker</h3>
+              <span class="text-[11px] text-muted-foreground mt-0.5">Héros Récalcitrant • Leader</span>
+            </div>
+
+            <!-- Aspects & Type Tags -->
+            <div class="flex items-center gap-1.5 text-[10px] font-medium text-muted-foreground">
+              <span class="inline-flex items-center gap-1 px-1.5 py-0.5 rounded bg-muted border border-border">
+                <span class="w-1.5 h-1.5 rounded-full bg-blue-500"></span> Vigilance
+              </span>
+              <span class="px-1.5 py-0.5 rounded bg-muted border border-border">Héroïsme</span>
+            </div>
+          </div>
+
+          <!-- Bottom Footer : Stepper Qty (shadcn Button group) -->
+          <div class="p-3 border-t border-border bg-secondary/20 flex items-center justify-between">
+            <span class="text-xs font-semibold text-primary flex items-center gap-1">
+              <i data-lucide="check" class="w-3.5 h-3.5"></i> Possédée
+            </span>
+            <div class="flex items-center rounded-md border border-input bg-card shadow-xs">
+              <button onclick="adjustQty(this, -1)" class="h-7 w-7 rounded-l-md flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-muted text-xs font-bold transition-colors">−</button>
+              <span class="qty-count text-xs font-mono font-bold px-2 min-w-[24px] text-center text-foreground">2</span>
+              <button onclick="adjustQty(this, 1)" class="h-7 w-7 rounded-r-md flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-muted text-xs font-bold transition-colors">+</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 005 : Dark Vador (Légendaire / Possédée) -->
+        <div class="card-item rounded-xl border border-border bg-card hover:border-primary/50 hover:shadow-md transition-all flex flex-col justify-between overflow-hidden group"
+             data-name="Dark Vador" data-number="005" data-rarity="Légendaire" data-aspect="agressivité" data-owned="true" data-foil="false">
+          
+          <div class="p-4 flex flex-col gap-3">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-mono font-bold text-primary">#005/252</span>
+              <span class="inline-flex items-center rounded-full border border-purple-500/20 bg-purple-500/10 px-2 py-0.5 text-[10px] font-semibold text-purple-700 dark:text-purple-400">
+                Légendaire
+              </span>
+            </div>
+
+            <div class="aspect-[4/3] rounded-lg bg-secondary/50 border border-border flex flex-col items-center justify-center p-3 text-center group-hover:bg-secondary/70 transition-colors">
+              <div class="w-10 h-10 rounded-full bg-red-500/10 text-red-500 flex items-center justify-center mb-2">
+                <i data-lucide="flame" class="w-5 h-5"></i>
+              </div>
+              <h3 class="text-sm font-bold text-foreground leading-tight">Dark Vador</h3>
+              <span class="text-[11px] text-muted-foreground mt-0.5">Seigneur Sith • Leader</span>
+            </div>
+
+            <div class="flex items-center gap-1.5 text-[10px] font-medium text-muted-foreground">
+              <span class="inline-flex items-center gap-1 px-1.5 py-0.5 rounded bg-muted border border-border">
+                <span class="w-1.5 h-1.5 rounded-full bg-red-500"></span> Agressivité
+              </span>
+              <span class="px-1.5 py-0.5 rounded bg-muted border border-border">Infamie</span>
+            </div>
+          </div>
+
+          <div class="p-3 border-t border-border bg-secondary/20 flex items-center justify-between">
+            <span class="text-xs font-semibold text-primary flex items-center gap-1">
+              <i data-lucide="check" class="w-3.5 h-3.5"></i> Possédée
+            </span>
+            <div class="flex items-center rounded-md border border-input bg-card shadow-xs">
+              <button onclick="adjustQty(this, -1)" class="h-7 w-7 rounded-l-md flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-muted text-xs font-bold transition-colors">−</button>
+              <span class="qty-count text-xs font-mono font-bold px-2 min-w-[24px] text-center text-foreground">1</span>
+              <button onclick="adjustQty(this, 1)" class="h-7 w-7 rounded-r-md flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-muted text-xs font-bold transition-colors">+</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 008 : Leia Organa (Rare / Possédée) -->
+        <div class="card-item rounded-xl border border-border bg-card hover:border-primary/50 hover:shadow-md transition-all flex flex-col justify-between overflow-hidden group"
+             data-name="Leia Organa" data-number="008" data-rarity="Rare" data-aspect="commandement" data-owned="true" data-foil="false">
+          
+          <div class="p-4 flex flex-col gap-3">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-mono font-bold text-primary">#008/252</span>
+              <span class="inline-flex items-center rounded-full border border-amber-500/20 bg-amber-500/10 px-2 py-0.5 text-[10px] font-semibold text-amber-700 dark:text-amber-400">
+                Rare
+              </span>
+            </div>
+
+            <div class="aspect-[4/3] rounded-lg bg-secondary/50 border border-border flex flex-col items-center justify-center p-3 text-center group-hover:bg-secondary/70 transition-colors">
+              <div class="w-10 h-10 rounded-full bg-emerald-500/10 text-emerald-500 flex items-center justify-center mb-2">
+                <i data-lucide="flag" class="w-5 h-5"></i>
+              </div>
+              <h3 class="text-sm font-bold text-foreground leading-tight">Leia Organa</h3>
+              <span class="text-[11px] text-muted-foreground mt-0.5">Générale de l'Alliance</span>
+            </div>
+
+            <div class="flex items-center gap-1.5 text-[10px] font-medium text-muted-foreground">
+              <span class="inline-flex items-center gap-1 px-1.5 py-0.5 rounded bg-muted border border-border">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Commandement
+              </span>
+              <span class="px-1.5 py-0.5 rounded bg-muted border border-border">Rebelle</span>
+            </div>
+          </div>
+
+          <div class="p-3 border-t border-border bg-secondary/20 flex items-center justify-between">
+            <span class="text-xs font-semibold text-primary flex items-center gap-1">
+              <i data-lucide="check" class="w-3.5 h-3.5"></i> Possédée
+            </span>
+            <div class="flex items-center rounded-md border border-input bg-card shadow-xs">
+              <button onclick="adjustQty(this, -1)" class="h-7 w-7 rounded-l-md flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-muted text-xs font-bold transition-colors">−</button>
+              <span class="qty-count text-xs font-mono font-bold px-2 min-w-[24px] text-center text-foreground">3</span>
+              <button onclick="adjustQty(this, 1)" class="h-7 w-7 rounded-r-md flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-muted text-xs font-bold transition-colors">+</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 012 : Empereur Palpatine (Légendaire / Manquante) -->
+        <div class="card-item card-missing rounded-xl border border-dashed border-border bg-card hover:border-primary/50 transition-all flex flex-col justify-between overflow-hidden group"
+             data-name="Empereur Palpatine" data-number="012" data-rarity="Légendaire" data-aspect="commandement" data-owned="false" data-foil="false">
+          
+          <div class="p-4 flex flex-col gap-3">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-mono font-bold text-muted-foreground">#012/252</span>
+              <span class="inline-flex items-center rounded-full border border-border bg-muted px-2 py-0.5 text-[10px] font-semibold text-muted-foreground">
+                Légendaire
+              </span>
+            </div>
+
+            <div class="aspect-[4/3] rounded-lg bg-secondary/30 border border-border flex flex-col items-center justify-center p-3 text-center">
+              <div class="w-10 h-10 rounded-full bg-muted text-muted-foreground flex items-center justify-center mb-2">
+                <i data-lucide="help-circle" class="w-5 h-5"></i>
+              </div>
+              <h3 class="text-sm font-bold text-muted-foreground leading-tight">Empereur Palpatine</h3>
+              <span class="text-[11px] text-muted-foreground mt-0.5">Maître Galactique</span>
+            </div>
+
+            <div class="flex items-center gap-1.5 text-[10px] font-medium text-muted-foreground">
+              <span class="inline-flex items-center gap-1 px-1.5 py-0.5 rounded bg-muted border border-border">
+                <span class="w-1.5 h-1.5 rounded-full bg-slate-400"></span> Commandement
+              </span>
+              <span class="px-1.5 py-0.5 rounded bg-muted border border-border">Empire</span>
+            </div>
+          </div>
+
+          <div class="p-3 border-t border-border bg-secondary/10 flex items-center justify-between">
+            <span class="text-xs font-medium text-muted-foreground">Manquante</span>
+            <button onclick="toggleOwn(this)" class="inline-flex items-center gap-1 text-xs font-semibold px-2.5 py-1 rounded-md border border-input bg-background hover:bg-accent hover:text-accent-foreground text-foreground transition-colors shadow-xs">
+              <i data-lucide="plus" class="w-3.5 h-3.5"></i> Posséder
+            </button>
+          </div>
+        </div>
+
+        <!-- CARD 018 : Faucon Millenium (Rare / Possédée / Foil) -->
+        <div class="card-item rounded-xl border border-border bg-card hover:border-primary/50 hover:shadow-md transition-all flex flex-col justify-between overflow-hidden group"
+             data-name="Faucon Millenium" data-number="018" data-rarity="Rare" data-aspect="ruse" data-owned="true" data-foil="true">
+          
+          <div class="p-4 flex flex-col gap-3">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-mono font-bold text-primary">#018/252</span>
+              <div class="flex items-center gap-1.5">
+                <span class="inline-flex items-center gap-1 rounded-full border border-primary/30 bg-primary/10 px-2 py-0.5 text-[10px] font-bold text-primary">
+                  <i data-lucide="sparkles" class="w-3 h-3"></i> FOIL
+                </span>
+                <span class="inline-flex items-center rounded-full border border-amber-500/20 bg-amber-500/10 px-2 py-0.5 text-[10px] font-semibold text-amber-700 dark:text-amber-400">
+                  Rare
+                </span>
+              </div>
+            </div>
+
+            <div class="aspect-[4/3] rounded-lg bg-secondary/50 border border-border flex flex-col items-center justify-center p-3 text-center group-hover:bg-secondary/70 transition-colors">
+              <div class="w-10 h-10 rounded-full bg-amber-500/10 text-amber-500 flex items-center justify-center mb-2">
+                <i data-lucide="send" class="w-5 h-5"></i>
+              </div>
+              <h3 class="text-sm font-bold text-foreground leading-tight">Faucon Millenium</h3>
+              <span class="text-[11px] text-muted-foreground mt-0.5">Le Tas de Ferraille • Véhicule</span>
+            </div>
+
+            <div class="flex items-center gap-1.5 text-[10px] font-medium text-muted-foreground">
+              <span class="inline-flex items-center gap-1 px-1.5 py-0.5 rounded bg-muted border border-border">
+                <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span> Ruse
+              </span>
+              <span class="px-1.5 py-0.5 rounded bg-muted border border-border">Vaisseau</span>
+            </div>
+          </div>
+
+          <div class="p-3 border-t border-border bg-secondary/20 flex items-center justify-between">
+            <span class="text-xs font-semibold text-primary flex items-center gap-1">
+              <i data-lucide="check" class="w-3.5 h-3.5"></i> Possédée
+            </span>
+            <div class="flex items-center rounded-md border border-input bg-card shadow-xs">
+              <button onclick="adjustQty(this, -1)" class="h-7 w-7 rounded-l-md flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-muted text-xs font-bold transition-colors">−</button>
+              <span class="qty-count text-xs font-mono font-bold px-2 min-w-[24px] text-center text-foreground">1</span>
+              <button onclick="adjustQty(this, 1)" class="h-7 w-7 rounded-r-md flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-muted text-xs font-bold transition-colors">+</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 024 : Soldat Clone de la 501e (Commune / Possédée) -->
+        <div class="card-item rounded-xl border border-border bg-card hover:border-primary/50 hover:shadow-md transition-all flex flex-col justify-between overflow-hidden group"
+             data-name="Soldat Clone de la 501e" data-number="024" data-rarity="Commune" data-aspect="commandement" data-owned="true" data-foil="false">
+          
+          <div class="p-4 flex flex-col gap-3">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-mono font-bold text-primary">#024/252</span>
+              <span class="inline-flex items-center rounded-full border border-border bg-muted px-2 py-0.5 text-[10px] font-semibold text-muted-foreground">
+                Commune
+              </span>
+            </div>
+
+            <div class="aspect-[4/3] rounded-lg bg-secondary/50 border border-border flex flex-col items-center justify-center p-3 text-center group-hover:bg-secondary/70 transition-colors">
+              <div class="w-10 h-10 rounded-full bg-secondary text-muted-foreground flex items-center justify-center mb-2">
+                <i data-lucide="users" class="w-5 h-5"></i>
+              </div>
+              <h3 class="text-sm font-bold text-foreground leading-tight">Soldat Clone 501e</h3>
+              <span class="text-[11px] text-muted-foreground mt-0.5">Infanterie Clone • Unité</span>
+            </div>
+
+            <div class="flex items-center gap-1.5 text-[10px] font-medium text-muted-foreground">
+              <span class="inline-flex items-center gap-1 px-1.5 py-0.5 rounded bg-muted border border-border">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Commandement
+              </span>
+              <span class="px-1.5 py-0.5 rounded bg-muted border border-border">République</span>
+            </div>
+          </div>
+
+          <div class="p-3 border-t border-border bg-secondary/20 flex items-center justify-between">
+            <span class="text-xs font-semibold text-primary flex items-center gap-1">
+              <i data-lucide="check" class="w-3.5 h-3.5"></i> Possédée
+            </span>
+            <div class="flex items-center rounded-md border border-input bg-card shadow-xs">
+              <button onclick="adjustQty(this, -1)" class="h-7 w-7 rounded-l-md flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-muted text-xs font-bold transition-colors">−</button>
+              <span class="qty-count text-xs font-mono font-bold px-2 min-w-[24px] text-center text-foreground">4</span>
+              <button onclick="adjustQty(this, 1)" class="h-7 w-7 rounded-r-md flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-muted text-xs font-bold transition-colors">+</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 035 : Boba Fett (Rare / Manquante) -->
+        <div class="card-item card-missing rounded-xl border border-dashed border-border bg-card hover:border-primary/50 transition-all flex flex-col justify-between overflow-hidden group"
+             data-name="Boba Fett" data-number="035" data-rarity="Rare" data-aspect="ruse" data-owned="false" data-foil="false">
+          
+          <div class="p-4 flex flex-col gap-3">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-mono font-bold text-muted-foreground">#035/252</span>
+              <span class="inline-flex items-center rounded-full border border-border bg-muted px-2 py-0.5 text-[10px] font-semibold text-muted-foreground">
+                Rare
+              </span>
+            </div>
+
+            <div class="aspect-[4/3] rounded-lg bg-secondary/30 border border-border flex flex-col items-center justify-center p-3 text-center">
+              <div class="w-10 h-10 rounded-full bg-muted text-muted-foreground flex items-center justify-center mb-2">
+                <i data-lucide="crosshair" class="w-5 h-5"></i>
+              </div>
+              <h3 class="text-sm font-bold text-muted-foreground leading-tight">Boba Fett</h3>
+              <span class="text-[11px] text-muted-foreground mt-0.5">Chasseur de Primes Craint</span>
+            </div>
+
+            <div class="flex items-center gap-1.5 text-[10px] font-medium text-muted-foreground">
+              <span class="inline-flex items-center gap-1 px-1.5 py-0.5 rounded bg-muted border border-border">
+                <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span> Ruse
+              </span>
+              <span class="px-1.5 py-0.5 rounded bg-muted border border-border">Chasseur</span>
+            </div>
+          </div>
+
+          <div class="p-3 border-t border-border bg-secondary/10 flex items-center justify-between">
+            <span class="text-xs font-medium text-muted-foreground">Manquante</span>
+            <button onclick="toggleOwn(this)" class="inline-flex items-center gap-1 text-xs font-semibold px-2.5 py-1 rounded-md border border-input bg-background hover:bg-accent hover:text-accent-foreground text-foreground transition-colors shadow-xs">
+              <i data-lucide="plus" class="w-3.5 h-3.5"></i> Posséder
+            </button>
+          </div>
+        </div>
+
+        <!-- CARD 042 : Chasseur TIE d'Élite (Peu Commune / Possédée) -->
+        <div class="card-item rounded-xl border border-border bg-card hover:border-primary/50 hover:shadow-md transition-all flex flex-col justify-between overflow-hidden group"
+             data-name="Chasseur TIE d'Élite" data-number="042" data-rarity="Peu Commune" data-aspect="agressivité" data-owned="true" data-foil="false">
+          
+          <div class="p-4 flex flex-col gap-3">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-mono font-bold text-primary">#042/252</span>
+              <span class="inline-flex items-center rounded-full border border-sky-500/20 bg-sky-500/10 px-2 py-0.5 text-[10px] font-semibold text-sky-700 dark:text-sky-400">
+                Peu Commune
+              </span>
+            </div>
+
+            <div class="aspect-[4/3] rounded-lg bg-secondary/50 border border-border flex flex-col items-center justify-center p-3 text-center group-hover:bg-secondary/70 transition-colors">
+              <div class="w-10 h-10 rounded-full bg-secondary text-primary flex items-center justify-center mb-2">
+                <i data-lucide="navigation" class="w-5 h-5"></i>
+              </div>
+              <h3 class="text-sm font-bold text-foreground leading-tight">Chasseur TIE d'Élite</h3>
+              <span class="text-[11px] text-muted-foreground mt-0.5">Escadron Noir • Véhicule</span>
+            </div>
+
+            <div class="flex items-center gap-1.5 text-[10px] font-medium text-muted-foreground">
+              <span class="inline-flex items-center gap-1 px-1.5 py-0.5 rounded bg-muted border border-border">
+                <span class="w-1.5 h-1.5 rounded-full bg-red-500"></span> Agressivité
+              </span>
+              <span class="px-1.5 py-0.5 rounded bg-muted border border-border">Empire</span>
+            </div>
+          </div>
+
+          <div class="p-3 border-t border-border bg-secondary/20 flex items-center justify-between">
+            <span class="text-xs font-semibold text-primary flex items-center gap-1">
+              <i data-lucide="check" class="w-3.5 h-3.5"></i> Possédée
+            </span>
+            <div class="flex items-center rounded-md border border-input bg-card shadow-xs">
+              <button onclick="adjustQty(this, -1)" class="h-7 w-7 rounded-l-md flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-muted text-xs font-bold transition-colors">−</button>
+              <span class="qty-count text-xs font-mono font-bold px-2 min-w-[24px] text-center text-foreground">2</span>
+              <button onclick="adjustQty(this, 1)" class="h-7 w-7 rounded-r-md flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-muted text-xs font-bold transition-colors">+</button>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- View Container 2: Table List View (Shadcn Table Style) -->
+      <section id="view-list" class="hidden rounded-xl border border-border bg-card shadow-xs overflow-hidden">
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-xs">
+            <thead class="border-b border-border bg-muted/50 font-medium text-muted-foreground">
+              <tr>
+                <th class="py-3 px-4 font-mono">N°</th>
+                <th class="py-3 px-4">Nom de la carte</th>
+                <th class="py-3 px-4">Aspect</th>
+                <th class="py-3 px-4">Rareté</th>
+                <th class="py-3 px-4">Type</th>
+                <th class="py-3 px-4">Foil</th>
+                <th class="py-3 px-4">Statut</th>
+                <th class="py-3 px-4 text-center">Quantité</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-border">
+              <!-- Row 1 -->
+              <tr class="hover:bg-muted/50 transition-colors">
+                <td class="py-3 px-4 font-mono font-bold text-primary">#001</td>
+                <td class="py-3 px-4 font-semibold text-foreground">Luke Skywalker - Héros Récalcitrant</td>
+                <td class="py-3 px-4"><span class="inline-flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-blue-500"></span> Vigilance</span></td>
+                <td class="py-3 px-4"><span class="inline-flex items-center rounded-full border border-purple-500/20 bg-purple-500/10 px-2 py-0.5 text-[10px] font-semibold text-purple-700 dark:text-purple-400">Légendaire</span></td>
+                <td class="py-3 px-4 text-muted-foreground">Leader</td>
+                <td class="py-3 px-4"><span class="text-primary font-bold">Oui</span></td>
+                <td class="py-3 px-4"><span class="text-primary font-semibold">✓ Possédée</span></td>
+                <td class="py-3 px-4 text-center font-mono font-bold">2</td>
+              </tr>
+              <!-- Row 2 -->
+              <tr class="hover:bg-muted/50 transition-colors">
+                <td class="py-3 px-4 font-mono font-bold text-primary">#005</td>
+                <td class="py-3 px-4 font-semibold text-foreground">Dark Vador - Seigneur Sith</td>
+                <td class="py-3 px-4"><span class="inline-flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-red-500"></span> Agressivité</span></td>
+                <td class="py-3 px-4"><span class="inline-flex items-center rounded-full border border-purple-500/20 bg-purple-500/10 px-2 py-0.5 text-[10px] font-semibold text-purple-700 dark:text-purple-400">Légendaire</span></td>
+                <td class="py-3 px-4 text-muted-foreground">Leader</td>
+                <td class="py-3 px-4 text-muted-foreground">Non</td>
+                <td class="py-3 px-4"><span class="text-primary font-semibold">✓ Possédée</span></td>
+                <td class="py-3 px-4 text-center font-mono font-bold">1</td>
+              </tr>
+              <!-- Row 3 -->
+              <tr class="hover:bg-muted/50 transition-colors">
+                <td class="py-3 px-4 font-mono font-bold text-primary">#008</td>
+                <td class="py-3 px-4 font-semibold text-foreground">Leia Organa - Générale de l'Alliance</td>
+                <td class="py-3 px-4"><span class="inline-flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Commandement</span></td>
+                <td class="py-3 px-4"><span class="inline-flex items-center rounded-full border border-amber-500/20 bg-amber-500/10 px-2 py-0.5 text-[10px] font-semibold text-amber-700 dark:text-amber-400">Rare</span></td>
+                <td class="py-3 px-4 text-muted-foreground">Unité</td>
+                <td class="py-3 px-4 text-muted-foreground">Non</td>
+                <td class="py-3 px-4"><span class="text-primary font-semibold">✓ Possédée</span></td>
+                <td class="py-3 px-4 text-center font-mono font-bold">3</td>
+              </tr>
+              <!-- Row 4 -->
+              <tr class="hover:bg-muted/50 transition-colors opacity-60">
+                <td class="py-3 px-4 font-mono font-bold text-muted-foreground">#012</td>
+                <td class="py-3 px-4 font-medium text-foreground">Empereur Palpatine - Maître Galactique</td>
+                <td class="py-3 px-4"><span class="inline-flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-slate-400"></span> Commandement</span></td>
+                <td class="py-3 px-4"><span class="inline-flex items-center rounded-full border border-border bg-muted px-2 py-0.5 text-[10px] font-semibold text-muted-foreground">Légendaire</span></td>
+                <td class="py-3 px-4 text-muted-foreground">Leader</td>
+                <td class="py-3 px-4 text-muted-foreground">Non</td>
+                <td class="py-3 px-4"><span class="text-muted-foreground">✗ Manquante</span></td>
+                <td class="py-3 px-4 text-center font-mono text-muted-foreground">0</td>
+              </tr>
+              <!-- Row 5 -->
+              <tr class="hover:bg-muted/50 transition-colors">
+                <td class="py-3 px-4 font-mono font-bold text-primary">#018</td>
+                <td class="py-3 px-4 font-semibold text-foreground">Faucon Millenium - Le Tas de Ferraille</td>
+                <td class="py-3 px-4"><span class="inline-flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span> Ruse</span></td>
+                <td class="py-3 px-4"><span class="inline-flex items-center rounded-full border border-amber-500/20 bg-amber-500/10 px-2 py-0.5 text-[10px] font-semibold text-amber-700 dark:text-amber-400">Rare</span></td>
+                <td class="py-3 px-4 text-muted-foreground">Véhicule</td>
+                <td class="py-3 px-4"><span class="text-primary font-bold">Oui</span></td>
+                <td class="py-3 px-4"><span class="text-primary font-semibold">✓ Possédée</span></td>
+                <td class="py-3 px-4 text-center font-mono font-bold">1</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+
+    // Dark mode toggle function
+    function toggleDarkMode() {
+      document.documentElement.classList.toggle('dark');
+      const isDark = document.documentElement.classList.contains('dark');
+      localStorage.setItem('minty-theme', isDark ? 'dark' : 'light');
+    }
+
+    let activeAspect = 'all';
+
+    function setViewMode(mode) {
+      const grid = document.getElementById('view-grid');
+      const list = document.getElementById('view-list');
+      const btnGrid = document.getElementById('btn-grid');
+      const btnList = document.getElementById('btn-list');
+
+      if (mode === 'grid') {
+        grid.classList.remove('hidden');
+        list.classList.add('hidden');
+        btnGrid.className = 'inline-flex items-center justify-center gap-1.5 whitespace-nowrap rounded-md px-3 py-1 text-xs font-medium ring-offset-background transition-all bg-card text-foreground shadow-xs';
+        btnList.className = 'inline-flex items-center justify-center gap-1.5 whitespace-nowrap rounded-md px-3 py-1 text-xs font-medium ring-offset-background transition-all hover:text-foreground text-muted-foreground';
+      } else {
+        grid.classList.add('hidden');
+        list.classList.remove('hidden');
+        btnList.className = 'inline-flex items-center justify-center gap-1.5 whitespace-nowrap rounded-md px-3 py-1 text-xs font-medium ring-offset-background transition-all bg-card text-foreground shadow-xs';
+        btnGrid.className = 'inline-flex items-center justify-center gap-1.5 whitespace-nowrap rounded-md px-3 py-1 text-xs font-medium ring-offset-background transition-all hover:text-foreground text-muted-foreground';
+      }
+    }
+
+    function filterAspect(aspect, element) {
+      activeAspect = aspect;
+      document.querySelectorAll('.aspect-chip').forEach(btn => {
+        btn.className = 'aspect-chip inline-flex items-center gap-1.5 rounded-full px-3 py-1 font-medium text-xs border border-border bg-card text-foreground hover:bg-accent transition-colors shrink-0';
+      });
+      element.className = 'aspect-chip inline-flex items-center gap-1.5 rounded-full px-3 py-1 font-medium text-xs bg-primary text-primary-foreground shadow-xs transition-colors shrink-0';
+      applyFilters();
+    }
+
+    function applyFilters() {
+      const searchQuery = (document.getElementById('input-search').value || '').toLowerCase().trim();
+      const statusFilter = document.getElementById('select-status').value;
+      const rarityFilter = document.getElementById('select-rarity').value;
+      const foilOnly = document.getElementById('check-foil-only').checked;
+
+      const cards = document.querySelectorAll('.card-item');
+
+      cards.forEach(card => {
+        const name = (card.dataset.name || '').toLowerCase();
+        const number = (card.dataset.number || '').toLowerCase();
+        const aspect = (card.dataset.aspect || '').toLowerCase();
+        const rarity = card.dataset.rarity || '';
+        const isOwned = card.dataset.owned === 'true';
+        const isFoil = card.dataset.foil === 'true';
+
+        let matchesSearch = !searchQuery || name.includes(searchQuery) || number.includes(searchQuery);
+        let matchesAspect = activeAspect === 'all' || aspect.includes(activeAspect);
+        let matchesRarity = rarityFilter === 'all' || rarity === rarityFilter;
+        let matchesFoil = !foilOnly || isFoil;
+        let matchesStatus = true;
+        if (statusFilter === 'owned') matchesStatus = isOwned;
+        if (statusFilter === 'missing') matchesStatus = !isOwned;
+
+        if (matchesSearch && matchesAspect && matchesRarity && matchesFoil && matchesStatus) {
+          card.classList.remove('hidden');
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+    }
+
+    document.getElementById('input-search').addEventListener('input', applyFilters);
+
+    function adjustQty(button, delta) {
+      const parent = button.parentElement;
+      const display = parent.querySelector('.qty-count');
+      let current = parseInt(display.textContent) || 0;
+      current = Math.max(0, current + delta);
+      display.textContent = current;
+
+      const card = button.closest('.card-item');
+      if (current === 0) {
+        card.dataset.owned = "false";
+        card.classList.add('card-missing');
+      } else {
+        card.dataset.owned = "true";
+        card.classList.remove('card-missing');
+      }
+      updateCounters();
+    }
+
+    function toggleOwn(button) {
+      const card = button.closest('.card-item');
+      card.dataset.owned = "true";
+      card.classList.remove('card-missing');
+      const footer = card.querySelector('.border-t');
+      footer.className = 'p-3 border-t border-border bg-secondary/20 flex items-center justify-between';
+      footer.innerHTML = `
+        <span class="text-xs font-semibold text-primary flex items-center gap-1">
+          <i data-lucide="check" class="w-3.5 h-3.5"></i> Possédée
+        </span>
+        <div class="flex items-center rounded-md border border-input bg-card shadow-xs">
+          <button onclick="adjustQty(this, -1)" class="h-7 w-7 rounded-l-md flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-muted text-xs font-bold transition-colors">−</button>
+          <span class="qty-count text-xs font-mono font-bold px-2 min-w-[24px] text-center text-foreground">1</span>
+          <button onclick="adjustQty(this, 1)" class="h-7 w-7 rounded-r-md flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-muted text-xs font-bold transition-colors">+</button>
+        </div>
+      `;
+      lucide.createIcons({ root: footer });
+      updateCounters();
+    }
+
+    function updateCounters() {
+      const allCards = document.querySelectorAll('.card-item');
+      let ownedCount = 0;
+      allCards.forEach(c => {
+        if (c.dataset.owned === 'true') ownedCount++;
+      });
+      const badge = document.getElementById('badge-total-owned');
+      if (badge) badge.textContent = ownedCount;
+      const counterOwned = document.getElementById('counter-owned');
+      if (counterOwned) counterOwned.textContent = ownedCount;
+      const pct = ((ownedCount / 252) * 100).toFixed(1) + '%';
+      const counterPercent = document.getElementById('counter-percent');
+      if (counterPercent) counterPercent.textContent = pct;
+      const counterMissing = document.getElementById('counter-missing');
+      if (counterMissing) counterMissing.textContent = `(${Math.max(0, 252 - ownedCount)} manquantes)`;
+      const bar = document.getElementById('progress-bar-fill');
+      if (bar) bar.style.width = pct;
+    }
+  </script>
+</body>
+</html>
