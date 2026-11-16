@@ -32,7 +32,7 @@ class DashboardController extends Controller
             'foils_total' => 98,
         ];
 
-        // 4 Dernières cartes obtenues (Pure collection, sans prix)
+        // 4 Dernières cartes obtenues (Charte sobre Minty : Mint, Cyan & Ardoise)
         $recentAcquisitions = [
             [
                 'nom' => 'Anakin Skywalker',
@@ -43,9 +43,9 @@ class DashboardController extends Controller
                 'aspect' => 'Agressivité',
                 'initiales' => 'AS',
                 'date_obtention' => 'Obtenue hier',
-                'bg_gradient' => 'from-amber-500/10 via-red-500/10 to-primary/10',
-                'badge_finition' => 'bg-violet-100 text-violet-800 border-violet-200',
-                'badge_rarete' => 'bg-amber-100 text-amber-800',
+                'bg_gradient' => 'bg-slate-50/80',
+                'badge_finition' => 'bg-cyan-500/10 text-cyan-700 border-cyan-500/20',
+                'badge_rarete' => 'bg-emerald-500/10 text-emerald-800 border-emerald-500/20',
             ],
             [
                 'nom' => 'Général Grievous',
@@ -56,9 +56,9 @@ class DashboardController extends Controller
                 'aspect' => 'Commandement',
                 'initiales' => 'GG',
                 'date_obtention' => 'Il y a 2j',
-                'bg_gradient' => 'from-slate-600/10 via-red-600/10 to-slate-900/15',
-                'badge_finition' => 'bg-slate-100 text-slate-700 border-slate-200',
-                'badge_rarete' => 'bg-blue-100 text-blue-800',
+                'bg_gradient' => 'bg-slate-50/80',
+                'badge_finition' => 'bg-slate-100 text-slate-600 border-slate-200',
+                'badge_rarete' => 'bg-slate-100 text-slate-700 border-slate-200',
             ],
             [
                 'nom' => 'Obi-Wan Kenobi',
@@ -69,9 +69,9 @@ class DashboardController extends Controller
                 'aspect' => 'Vigilance',
                 'initiales' => 'OW',
                 'date_obtention' => 'Il y a 3j',
-                'bg_gradient' => 'from-cyan-500/10 via-blue-500/10 to-primary/10',
-                'badge_finition' => 'bg-violet-100 text-violet-800 border-violet-200',
-                'badge_rarete' => 'bg-blue-100 text-blue-800',
+                'bg_gradient' => 'bg-slate-50/80',
+                'badge_finition' => 'bg-cyan-500/10 text-cyan-700 border-cyan-500/20',
+                'badge_rarete' => 'bg-slate-100 text-slate-700 border-slate-200',
             ],
             [
                 'nom' => 'Capitaine Rex',
@@ -82,9 +82,9 @@ class DashboardController extends Controller
                 'aspect' => 'Commandement',
                 'initiales' => 'REX',
                 'date_obtention' => '20 Oct.',
-                'bg_gradient' => 'from-blue-500/10 via-emerald-500/10 to-slate-200/50',
-                'badge_finition' => 'bg-slate-100 text-slate-700 border-slate-200',
-                'badge_rarete' => 'bg-emerald-100 text-emerald-800',
+                'bg_gradient' => 'bg-slate-50/80',
+                'badge_finition' => 'bg-slate-100 text-slate-600 border-slate-200',
+                'badge_rarete' => 'bg-slate-100 text-slate-700 border-slate-200',
             ],
         ];
 
